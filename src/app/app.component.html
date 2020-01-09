@@ -1,0 +1,15 @@
+
+<button mat-button [matMenuTriggerFor]="menu" >Menu</button>
+<mat-menu #menu="matMenu"  >
+  <button mat-menu-item onclick="event.stopPropagation();" >Item 1</button>
+  <button mat-menu-item onclick="event.stopPropagation();">Item 2</button>
+</mat-menu>
+<mat-card>
+    <div>
+        <label>Email</label>
+        <input />
+        <label>Password</label>
+        <input/>
+    </div>
+    
+</mat-card>
