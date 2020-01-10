@@ -1,0 +1,43 @@
+
+.loginCard{
+    text-align: center;
+    margin-top:5rem;
+    width: 600px;
+    border: 1px solid lightgray;
+    margin-left: auto;
+    margin-right: auto;
+    height: 490px;
+    border-radius: 20px;
+}
+
+.loginTitle{
+    font-display: inherit;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    color:orangered;
+    padding: 0;
+}
+
+.loginHead{
+    font-size: 15px;
+    font: x-large;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 50px;
+}
+
+.inputPass{
+    margin-top: 10px;
+}
+
+.loginButton{
+    margin-top: 10px;
+    width: 100px;
+}
