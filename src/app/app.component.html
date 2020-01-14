@@ -8,12 +8,12 @@
   </div>
   <form class="inputArea">
     <mat-form-field>
-      <input class="" matInput autocomplete="off" placeholder="Email" />
+      <input matInput (input)="onUpdate($event)" name="email" autocomplete="off" placeholder="Email" />
     </mat-form-field>
     
     <mat-form-field class="inputPass">
-      <input matInput autocomplete="current-password" placeholder="Password" type="password" />
+      <input matInput autocomplete="current-password" [(ngModel)]="password" name="password" placeholder="Password" type="password" />
     </mat-form-field>
   </form>
-  <button class="loginButton" mat-raised-button color="primary">Login</button>
+  <button class="loginButton" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
 </mat-card>
