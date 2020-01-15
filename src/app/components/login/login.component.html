@@ -1,0 +1,18 @@
+<mat-card class="loginCard">
+    <div class="loginTitle">
+      <h2>Fundoo Notes</h2>
+    </div>
+    <div class="loginHead">
+      <h3>Login into your Fundoo account</h3>
+    </div>
+    <form class="inputArea">
+      <mat-form-field>
+        <input matInput (input)="onUpdate($event)" name="email" autocomplete="email" placeholder="Email" />
+      </mat-form-field>
+      
+      <mat-form-field class="inputPass">
+        <input matInput autocomplete="current-password" [(ngModel)]="password" name="password" placeholder="Password" type="password" />
+      </mat-form-field>
+    </form>
+    <button class="loginButton" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+</mat-card>
