@@ -1,1 +1,30 @@
-<p>register works!</p>
+<mat-card class="registerCard">
+    <div class="registerTitle">
+      <h2>Fundoo Notes</h2>
+    </div>
+    <div class="registerHead">
+      <h3>Create your Fundoo account</h3>
+    </div>
+    <form class="inputArea">
+        <mat-form-field class="inputPass">
+            <input matInput [(ngModel)]="firstName" name="firstName" autocomplete="name" placeholder="First Name" />
+        </mat-form-field>  
+
+        <mat-form-field class="inputPass">
+            <input matInput [(ngModel)]="lastName" name="lastName" autocomplete="name" placeholder="Last Name" />
+        </mat-form-field> 
+
+        <mat-form-field class="inputPass">
+            <input matInput [(ngModel)]="email" name="email" autocomplete="email" placeholder="Email" />
+        </mat-form-field>
+        
+        <mat-form-field class="inputPass">
+            <input matInput [(ngModel)]="password" name="password" autocomplete="off" placeholder="Password" type="password" />
+        </mat-form-field>
+    </form>
+    <div class="submit">
+      <a class="login" routerLink="/login">Sign in instead?</a>
+      <button class="registerButton" mat-raised-button color="primary" (click)="onSubmit()">Register</button>
+    </div>
+</mat-card>
+

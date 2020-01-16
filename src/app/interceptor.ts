@@ -20,11 +20,11 @@ export class MyInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     //how to update the request Parameters
     const updatedRequest = request.clone({
-      headers: request.headers.set("Token", sessionStorage.getItem("token"))
+      headers: request.headers.set("token", sessionStorage.getItem("token")===null?"":sessionStorage.getItem("token"))
     });
     //logging the updated Parameters to browser's console
     console.log("Before making api call : ", updatedRequest);
-    return next.handle(request).pipe(
+    return next.handle(updatedRequest).pipe(
       tap(
         event => {
           //logging the http response to browser's console in case of a success
@@ -32,8 +32,8 @@ export class MyInterceptor implements HttpInterceptor {
             console.log("api call success :", event);
           }
         },
-        error => {
-          //logging the http response to browser's console in case of a failuer
+        event => {
+          //logging the http response to browser's console in case of a failure
           if (event instanceof HttpErrorResponse) {
             console.log("api call error :", event);
           }

@@ -7,12 +7,19 @@
     </div>
     <form class="inputArea">
       <mat-form-field>
-        <input matInput (input)="onUpdate($event)" name="email" autocomplete="email" placeholder="Email" />
+        <input matInput [(ngModel)]="email" name="email" autocomplete="email" placeholder="Email" />
       </mat-form-field>
       
       <mat-form-field class="inputPass">
-        <input matInput autocomplete="current-password" [(ngModel)]="password" name="password" placeholder="Password" type="password" />
+        <input matInput autocomplete="off" [(ngModel)]="password" name="password" placeholder="Password" type="password" />
       </mat-form-field>
     </form>
-    <button class="loginButton" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+    <div>
+      <a class="forgot" routerLink="/forgot">Forgot Password?</a>
+      <button class="loginButton" mat-raised-button color="primary" (click)="onSubmit()">Login</button>
+    </div>
+    <div class='register'>
+      <h3>Not registered yet?</h3>
+      <a routerLink='/register'>Create Fundoo Account</a>
+  </div>
 </mat-card>

@@ -1,37 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators} from '@angular/forms';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {UserService} from '../../services/user.service';
 
+var emailPattern =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/igm,
+  passwordPattern = /^[a-zA-Z0-9]{6,20}$/;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
 })
+
 export class LoginComponent implements OnInit {
-
-  email:any = ['',Validators.required,Validators.email];
-  password:String = '';
-
+  
+  email:string = "";
+  password:string = '';
   constructor(private http:HttpClient, private router:Router, private user: UserService) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
-    let request={
-      email:this.email,
-      password:this.password
+
+    if(!emailPattern.test(this.email) || !passwordPattern.test(this.password)){
+      alert("Email/password is incorrect");
+      this.email="";
+      this.password="";
+      return;
     }
-    // let obs = this.http.post();
-    this.user.login('http://localhost:5000/login',request).subscribe((response:HttpResponse<any>)=>{ 
-      this.router.navigate(['/register']);
-      sessionStorage.setItem("token",response.body.session)
-    })
+    else{
+      let request={
+        email:this.email,
+        password:this.password
+      }
+    
+      this.user.login('http://localhost:5000/login',request).subscribe((response:HttpResponse<any>)=>{ 
+        sessionStorage.setItem("token",response.body.session);
+        this.router.navigate(['/dashboard']);
+      },(error)=>{
+        console.log("Error occurred",error)
+      })
+    }
   }
 
-  onUpdate(event:Event){
-    this.email=(<HTMLInputElement>event.target).value;
-  }
+  // onUpdate(event:Event){
+  //   this.email=(<HTMLInputElement>event.target).value;
+  // }
 }

@@ -1,3 +1,6 @@
+a:visited{
+color: mediumblue;
+}
 
 .loginCard{
     text-align: center;
@@ -37,7 +40,22 @@
     margin-top: 10px;
 }
 
+.forgot{
+    float: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
 .loginButton{
+    margin-right: 50px;
+    float: right;
     margin-top: 10px;
     width: 100px;
+}
+
+.register{
+    margin-top: 5em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
 }
