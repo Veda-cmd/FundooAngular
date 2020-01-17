@@ -1,1 +1,26 @@
-<p>reset works!</p>
+<mat-card class="resetCard">
+    <div class="resetTitle">
+      <h2>Fundoo Notes</h2>
+    </div>
+    <div class="resetHead">
+      <h3>Reset your Fundoo account password</h3>
+    </div>
+    <form class="inputArea">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" name="password" autocomplete="off" [type]="show ? 'text' : 'password'" required />
+        <mat-icon matSuffix (click)="showPassword()" *ngIf="!show">visibility_off</mat-icon>
+        <mat-icon matSuffix (click)="showPassword()" *ngIf="show">visibility</mat-icon>
+      </mat-form-field>
+      
+      <mat-form-field class="inputPass" appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput autocomplete="off" [(ngModel)]="confirmPassword" name="confirmPassword" [type]="show ? 'text' : 'password'" required />
+        <mat-icon matSuffix (click)="showPassword()" *ngIf="!show">visibility_off</mat-icon>
+        <mat-icon matSuffix (click)="showPassword()" *ngIf="show">visibility</mat-icon>
+      </mat-form-field>
+    </form>
+    <div>
+        <button class="resetButton" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    </div>
+</mat-card>

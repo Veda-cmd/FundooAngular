@@ -1,1 +1,17 @@
-<p>forgot works!</p>
+<mat-card class="forgotCard">
+    <div class="forgotTitle">
+        <h2>Fundoo Notes</h2>
+    </div>
+    <div class="forgotHead">
+        <h3>Recover your Fundoo account</h3>
+    </div>
+    <form class="inputArea">
+        <p class="inputHead">Enter the registered email below</p>
+        <mat-form-field class="input">
+            <input matInput [(ngModel)]="email" name="email" autocomplete="email" placeholder="Email" />
+        </mat-form-field>
+    </form>
+    <div>
+        <button class="forgotButton" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    </div>
+</mat-card>

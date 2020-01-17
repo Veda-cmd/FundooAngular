@@ -12,4 +12,12 @@ export class UserService {
   login(url: string,request: Object){
     return this.httpService.post(url,request);
   }
+
+  register(url: string,request: Object){
+    return this.httpService.post(url,request);
+  }
+
+  forgot(url: string,request: Object){
+    return this.httpService.post(url,request);
+  }
 }

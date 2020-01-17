@@ -6,21 +6,29 @@
       <h3>Create your Fundoo account</h3>
     </div>
     <form class="inputArea">
-        <mat-form-field class="inputPass">
-            <input matInput [(ngModel)]="firstName" name="firstName" autocomplete="name" placeholder="First Name" />
+        <mat-form-field 
+        [hideRequiredMarker]="true" 
+        appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="firstName" name="firstName" autocomplete="name" />
         </mat-form-field>  
 
-        <mat-form-field class="inputPass">
-            <input matInput [(ngModel)]="lastName" name="lastName" autocomplete="name" placeholder="Last Name" />
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="lastName" name="lastName" autocomplete="name" />
         </mat-form-field> 
 
-        <mat-form-field class="inputPass">
-            <input matInput [(ngModel)]="email" name="email" autocomplete="email" placeholder="Email" />
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="email" name="email" autocomplete="email" />
         </mat-form-field>
         
-        <mat-form-field class="inputPass">
-            <input matInput [(ngModel)]="password" name="password" autocomplete="off" placeholder="Password" type="password" />
-        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="password" name="password" autocomplete="off" [type]="show ? 'text' : 'password'"/>
+            <mat-icon (click)="showPassword()" *ngIf="!show" matSuffix>visibility_off</mat-icon>
+            <mat-icon matSuffix (click)="showPassword()" *ngIf="show">visibility</mat-icon>
+        </mat-form-field >
     </form>
     <div class="submit">
       <a class="login" routerLink="/login">Sign in instead?</a>

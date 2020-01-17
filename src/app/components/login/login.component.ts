@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import {UserService} from '../../services/user.service';
 
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   
   email:string = "";
   password:string = '';
-  constructor(private http:HttpClient, private router:Router, private user: UserService) { }
+  constructor(private router:Router, private user: UserService) { }
 
   ngOnInit() {
   }

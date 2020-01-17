@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
-import { MatFormFieldModule, MatInputModule} from '@angular/material';
+import { MatFormFieldModule, MatInputModule,MatIconModule} from '@angular/material';
 import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
@@ -11,7 +11,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatMenuModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class MaterialUIModule { }
