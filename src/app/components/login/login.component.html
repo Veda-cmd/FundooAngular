@@ -6,12 +6,16 @@
       <h3>Login into your Fundoo account</h3>
     </div>
     <form class="inputArea">
-      <mat-form-field>
-        <input matInput [(ngModel)]="email" name="email" autocomplete="email" placeholder="Email" />
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [(ngModel)]="email" name="email" autocomplete="email" required />
       </mat-form-field>
       
-      <mat-form-field class="inputPass">
-        <input matInput autocomplete="off" [(ngModel)]="password" name="password" placeholder="Password" type="password" />
+      <mat-form-field class="inputPass" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput autocomplete="off" [(ngModel)]="password" name="password" [type]="show?'text':'password'" required/>
+        <mat-icon (click)="showPassword()" *ngIf="!show" matSuffix>visibility_off</mat-icon>
+        <mat-icon (click)="showPassword()" *ngIf="show" matSuffix>visibility</mat-icon>
       </mat-form-field>
     </form>
     <div>

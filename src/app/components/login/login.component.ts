@@ -13,12 +13,16 @@ var emailPattern =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(
 })
 
 export class LoginComponent implements OnInit {
-  
+  show:boolean=false;
   email:string = "";
   password:string = '';
   constructor(private router:Router, private user: UserService) { }
 
   ngOnInit() {
+  }
+
+  showPassword(){
+    this.show=!this.show
   }
 
   onSubmit(){

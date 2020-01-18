@@ -14,6 +14,9 @@ import { ResetComponent } from './components/reset/reset.component';
 import { ForgotComponent } from './components/forgot/forgot.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { RemindersComponent } from './components/dashboard/reminders/reminders.component';
+import { DrawerComponent } from './components/dashboard/drawer/drawer.component';
+import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
+import { NotesComponent } from './components/dashboard/notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { RemindersComponent } from './components/dashboard/reminders/reminders.c
     ResetComponent,
     ForgotComponent,
     PagenotfoundComponent,
-    RemindersComponent
+    RemindersComponent,
+    DrawerComponent,
+    ToolbarComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,
