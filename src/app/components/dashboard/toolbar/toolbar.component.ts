@@ -8,8 +8,9 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class ToolbarComponent implements OnInit {
   open:boolean;
+  labels:[];
 
-  constructor(private data:DataService) { }
+  constructor(private data:DataService) {}
 
   ngOnInit() {
     this.data.open.subscribe(value=>this.open=value);
@@ -17,8 +18,6 @@ export class ToolbarComponent implements OnInit {
 
   openDrawer(){
     this.data.changeValue(!this.open);
-    console.log(this.open);
-    
   }
 
 }

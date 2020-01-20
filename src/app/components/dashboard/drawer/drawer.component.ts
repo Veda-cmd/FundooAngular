@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -8,11 +8,12 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class DrawerComponent implements OnInit {
   open:boolean;
+  @Input() labels:Array<any>
   
-  constructor(private data:DataService) { }
+  constructor(private data:DataService) {}
 
   ngOnInit() {
-    this.data.open.subscribe(value=>this.open=value);
+    this.data.open.subscribe(value=>this.open=value);    
   }
 
 }

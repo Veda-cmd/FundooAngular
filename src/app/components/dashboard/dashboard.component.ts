@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NoteService } from 'src/app/services/note.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  labels:Array<any>=[];
+  constructor(private note:NoteService) { }
 
   ngOnInit() {
+    this.getLabels();
+  }
+
+  getLabels(){
+    this.note.getLabels("http://localhost:5000/label/getAllLabels").subscribe((response:any)=>{ 
+     this.labels = response;
+    },(error)=>{
+      console.log("Error occurred",error)
+    })
   }
 
 }

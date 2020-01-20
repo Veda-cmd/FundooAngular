@@ -13,4 +13,9 @@ export class HttpService {
     let response = this.http.post(url,request,{headers:headers,observe: 'response' });
     return response;
   }
+
+  get(url: string){
+    let response = this.http.get(url,{observe:'body'});
+    return response;
+  }
 }

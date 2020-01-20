@@ -16,6 +16,7 @@ const routes: Routes = [
   {path:'forgot',component:ForgotComponent},
   {path:'reset/:token',component:ResetComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuardService],children:[
+    {path:'',redirectTo:'reminders',pathMatch:'full'},
     {path:"reminders",component:RemindersComponent}
   ]},
   {path:'**',component:PagenotfoundComponent}

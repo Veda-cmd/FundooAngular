@@ -1,0 +1,60 @@
+.title{
+    display: inline-block;
+    color: #f5862b;
+    opacity: 1;
+    font-family: 'Product Sans',Arial,sans-serif;
+    font-size: 22px;
+    line-height: 24px;
+    padding-left: 4px;
+    position: relative;
+    top: -13.5px;
+    vertical-align: middle;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.menu{
+    cursor: pointer;
+}
+
+.image{
+    width:40px;
+    height:40px;
+}
+
+.main{
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+// .searchBar{
+//     margin-left: 110px;
+//     // margin-top: 20px;
+//     width: 350px;
+//     // width: 150px;
+// }
+
+.icon{
+    margin-top: 20px;
+}
+
+.ui-inputgroup{
+    margin-left: 90px;
+}
+
+.ui-inputtext:not(:first-child) {
+    width: 550px;
+}
+
+.icons{
+    margin-left: 150px;
+    margin-top: 33px;
+}
+
+.settings,.view{
+    margin-left: 40px;
+}
+
+.refresh,.settings,.view{
+    cursor: pointer;
+}
