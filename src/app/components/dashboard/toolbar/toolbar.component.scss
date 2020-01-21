@@ -55,6 +55,11 @@
     margin-left: 40px;
 }
 
-.refresh,.settings,.view{
+.refresh,.settings,.view,.profile{
     cursor: pointer;
+}
+
+.profile{
+    margin-left: 90px;
+    border-radius: 90%;
 }

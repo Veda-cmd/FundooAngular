@@ -8,6 +8,7 @@ import { ForgotComponent } from './components/forgot/forgot.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { RemindersComponent } from './components/dashboard/reminders/reminders.component';
+import { NotesComponent } from './components/dashboard/notes/notes.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
@@ -16,8 +17,10 @@ const routes: Routes = [
   {path:'forgot',component:ForgotComponent},
   {path:'reset/:token',component:ResetComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuardService],children:[
-    {path:'',redirectTo:'reminders',pathMatch:'full'},
-    {path:"reminders",component:RemindersComponent}
+    {path:'',redirectTo:'notes',pathMatch:'full'},
+    {path:'notes',component:NotesComponent},
+    {path:"reminders",component:RemindersComponent},
+    {path:'**',component:PagenotfoundComponent}
   ]},
   {path:'**',component:PagenotfoundComponent}
 ];

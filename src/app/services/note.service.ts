@@ -11,4 +11,8 @@ export class NoteService {
   getLabels(url: string){
     return this.http.get(url);
   }
+
+  getNotes(url: string){
+    return this.http.get(url);
+  }
 }

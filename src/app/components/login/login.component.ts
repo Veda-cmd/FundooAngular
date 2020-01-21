@@ -41,6 +41,9 @@ export class LoginComponent implements OnInit {
     
       this.user.login('http://localhost:5000/login',request).subscribe((response:HttpResponse<any>)=>{ 
         sessionStorage.setItem("token",response.body.session);
+        sessionStorage.setItem("image",response.body.response.imageUrl);
+        
+        // sessionStorage.setItem("image",response.body)
         this.router.navigate(['/dashboard']);
       },(error)=>{
         console.log("Error occurred",error)

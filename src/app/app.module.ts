@@ -17,6 +17,10 @@ import { RemindersComponent } from './components/dashboard/reminders/reminders.c
 import { DrawerComponent } from './components/dashboard/drawer/drawer.component';
 import { ToolbarComponent } from './components/dashboard/toolbar/toolbar.component';
 import { NotesComponent } from './components/dashboard/notes/notes.component';
+import { CreatenoteComponent } from './components/dashboard/createnote/createnote.component';
+import { DisplaynotesComponent } from './components/dashboard/displaynotes/displaynotes.component';
+import { IconsComponent } from './components/dashboard/icons/icons.component';
+import { AvatarModule } from 'ngx-avatar';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { NotesComponent } from './components/dashboard/notes/notes.component';
     RemindersComponent,
     DrawerComponent,
     ToolbarComponent,
-    NotesComponent
+    NotesComponent,
+    CreatenoteComponent,
+    DisplaynotesComponent,
+    IconsComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +45,8 @@ import { NotesComponent } from './components/dashboard/notes/notes.component';
     BrowserAnimationsModule,
     MaterialUIModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AvatarModule
   ],
   providers: [
     {

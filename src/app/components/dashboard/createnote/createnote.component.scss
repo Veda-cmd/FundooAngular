@@ -1,0 +1,99 @@
+.notediv{
+    width: 450px;
+    height: 75px;
+    margin-left: 350px;
+    margin-top: 40px;
+}
+
+.notecard{
+    width: 550px;
+    min-height: 100px;
+    margin-left: 350px;
+    margin-top: 40px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.20);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.20);
+}
+
+.input{
+    width:430px;
+    padding: 15px;
+    border-radius: 10px;
+    letter-spacing: .00625em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif; 
+    font-size: 1rem; 
+    font-weight: 500; 
+    line-height: 1.5rem;
+    box-sizing: border-box;
+}
+
+.inputTitle{
+    overflow-y: hidden;
+    letter-spacing: .00625em;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding-bottom: 12px;
+    resize: none;
+}
+
+.titlearea{
+    display: flex;
+    flex-direction: row;
+}
+
+.description,.inputTitle{
+    width: 470px;
+    overflow-y: hidden;
+    resize: none;
+    outline: none;
+    border: 0;
+    color: #80868b;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-weight: 500;
+}
+
+.description{
+    letter-spacing: .01785714em;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.tools{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.iconslist{
+    width: 50%;
+}
+
+.close{
+    width: 100px;
+    height: 36px;
+    margin: 15px 0 0 175px;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.close:hover{
+    background-color: rgba(95,99,104,0.039);
+}
+
+.close:active{
+    background-color: rgba(95,99,104,0.161)!important;
+}

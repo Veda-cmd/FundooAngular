@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 
@@ -21,6 +22,7 @@ import {ButtonModule} from 'primeng/button';
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatListModule,
     MatDividerModule,
     InputTextModule,
