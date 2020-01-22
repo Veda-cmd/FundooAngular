@@ -20,6 +20,7 @@ import { NotesComponent } from './components/dashboard/notes/notes.component';
 import { CreatenoteComponent } from './components/dashboard/createnote/createnote.component';
 import { DisplaynotesComponent } from './components/dashboard/displaynotes/displaynotes.component';
 import { IconsComponent } from './components/dashboard/icons/icons.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AvatarModule } from 'ngx-avatar';
 
 @NgModule({
@@ -46,7 +47,9 @@ import { AvatarModule } from 'ngx-avatar';
     MaterialUIModule,
     FormsModule,
     HttpClientModule,
-    AvatarModule
+    AvatarModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     {

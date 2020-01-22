@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RemindersComponent implements OnInit {
 
+  public min = new Date();
+  public dateTimeRange: any;
   constructor() { }
 
   ngOnInit() {
   }
-
+  
 }

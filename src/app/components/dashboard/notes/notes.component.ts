@@ -19,7 +19,7 @@ export class NotesComponent implements OnInit {
   getNotes(){
     this.note.getNotes("http://localhost:5000/note/getAllNotes").subscribe((response:any)=>{ 
     this.notes = response;
-    // console.log(response);
+    // console.log(this.notes);
     
     },(error)=>{
       console.log("Error occurred",error)

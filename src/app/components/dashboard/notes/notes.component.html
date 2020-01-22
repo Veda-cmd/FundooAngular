@@ -1,2 +1,4 @@
 <app-createnote></app-createnote>
-<app-displaynotes [allnotes]="notes"></app-displaynotes>
+<div class="displayArea">
+    <app-displaynotes (getNotes)="getNotes($event)" *ngFor="let item of notes" [note]="item"></app-displaynotes>
+</div>

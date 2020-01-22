@@ -9,6 +9,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {InputTextModule} from 'primeng/inputtext';
+import {MatChipsModule} from '@angular/material/chips';
 import {ButtonModule} from 'primeng/button';
 
 @NgModule({
@@ -25,6 +26,7 @@ import {ButtonModule} from 'primeng/button';
     MatTooltipModule,
     MatListModule,
     MatDividerModule,
+    MatChipsModule,
     InputTextModule,
     ButtonModule
   ]
