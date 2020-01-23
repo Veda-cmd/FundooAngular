@@ -30,7 +30,7 @@ export class ForgotComponent implements OnInit {
         email:this.email
       }
 
-      this.user.forgot("http://localhost:5000/forgot",request).subscribe((response:HttpResponse<any>)=>{ 
+      this.user.forgot(request).subscribe((response:HttpResponse<any>)=>{ 
         alert("Reset email has been sent to your registered email id. Please check.");
         this.router.navigate(['/login']);
       },(error)=>{

@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getLabels(){
-    this.note.getLabels("http://localhost:5000/label/getAllLabels").subscribe((response:any)=>{ 
+    this.note.getLabels().subscribe((response:any)=>{ 
      this.labels = response;
     },(error)=>{
       console.log("Error occurred",error)

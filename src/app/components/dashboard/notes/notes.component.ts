@@ -17,7 +17,7 @@ export class NotesComponent implements OnInit {
   }
 
   getNotes(){
-    this.note.getNotes("http://localhost:5000/note/getAllNotes").subscribe((response:any)=>{ 
+    this.note.getNotes().subscribe((response:any)=>{ 
     this.notes = response;
     // console.log(this.notes);
     

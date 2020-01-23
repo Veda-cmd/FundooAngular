@@ -25,4 +25,15 @@ export class DrawerComponent implements OnInit {
     this.router.navigate(["/dashboard/reminders"]);
   }
 
+  openLabel(label:string){
+    this.router.navigate(["/dashboard/label/"+label]);
+  }
+
+  openArchive(){
+    this.router.navigate(["/dashboard/archive"]);
+  }
+
+  openTrash(){
+    this.router.navigate(["/dashboard/trash"]);
+  }
 }

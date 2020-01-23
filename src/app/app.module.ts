@@ -22,6 +22,9 @@ import { DisplaynotesComponent } from './components/dashboard/displaynotes/displ
 import { IconsComponent } from './components/dashboard/icons/icons.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { AvatarModule } from 'ngx-avatar';
+import { ArchiveComponent } from './components/dashboard/archive/archive.component';
+import { TrashComponent } from './components/dashboard/trash/trash.component';
+import { LabelsComponent } from './components/dashboard/labels/labels.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { AvatarModule } from 'ngx-avatar';
     NotesComponent,
     CreatenoteComponent,
     DisplaynotesComponent,
-    IconsComponent
+    IconsComponent,
+    ArchiveComponent,
+    TrashComponent,
+    LabelsComponent
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
         email:this.email,
         password:this.password,
       }
-      this.user.register("http://localhost:5000/register",request).subscribe((response:HttpResponse<any>)=>{ 
+      this.user.register(request).subscribe((response:HttpResponse<any>)=>{ 
         this.router.navigate(['/login']);
       },(error:HttpErrorResponse)=>{
         console.log("Error occurred",error)

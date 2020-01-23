@@ -1,32 +1,36 @@
-
-    <mat-card class="card" [style.background]="note?.color">
-        <div class="titlearea">
-            <textarea class="inputTitle" readonly>{{note.title}}</textarea>
-            <mat-icon matSuffix matTooltip="Pin Note" class="pin" (click)="pinNote(note)"
-                *ngIf="note.isPinned===pinned">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path
-                        d="M17 4v7l2 3v2h-6v5l-1 1-1-1v-5H5v-2l2-3V4c0-1.1.9-2 2-2h6c1.11 0 2 .89 2 2zM9 4v7.75L7.5 14h9L15 11.75V4H9z" />
-                </svg>
-            </mat-icon>
-            <mat-icon matSuffix matTooltip="Unpin Note" class="unpin" (click)="unpinNote(note)"
-                *ngIf="note.isPinned===!pinned">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0z" />
-                    <path fill="#000" d="M17 4a2 2 0 0 0-2-2H9c-1.1 0-2 .9-2 2v7l-2 3v2h6v5l1 1 1-1v-5h6v-2l-2-3V4z" />
-                </svg>
-            </mat-icon>
-        </div>
-        <div>
-            <textarea class="description" readonly>{{note.description}}</textarea>
-        </div>
-        <mat-chip-list>
-            <mat-chip *ngIf="note.reminder!==null">
-                <!-- <mat-icon matIcon>access_time</mat-icon> -->
-                {{note?.reminder}}
-                <mat-icon matChipRemove (click)="deleteReminder()" *ngIf="removable">cancel</mat-icon>
-            </mat-chip>
-        </mat-chip-list>
-        <app-icons (setReminder)="setReminder($event)"></app-icons>
-    </mat-card>
+<mat-card class="card" [style.background]="note?.color">
+    <div class="titlearea">
+        <textarea class="inputTitle" readonly>{{note.title}}</textarea>
+        <mat-icon matSuffix matTooltip="Pin Note" class="pin" (click)="pinNote()" *ngIf="note.isPinned===pinned">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                    d="M17 4v7l2 3v2h-6v5l-1 1-1-1v-5H5v-2l2-3V4c0-1.1.9-2 2-2h6c1.11 0 2 .89 2 2zM9 4v7.75L7.5 14h9L15 11.75V4H9z" />
+            </svg>
+        </mat-icon>
+        <mat-icon matSuffix matTooltip="Unpin Note" class="unpin" (click)="unpinNote()" *ngIf="note.isPinned===!pinned">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path fill="#000" d="M17 4a2 2 0 0 0-2-2H9c-1.1 0-2 .9-2 2v7l-2 3v2h6v5l1 1 1-1v-5h6v-2l-2-3V4z" />
+            </svg>
+        </mat-icon>
+    </div>
+    <div>
+        <textarea class="description" readonly>{{note.description}}</textarea>
+    </div>
+    <mat-chip-list>
+        <mat-chip *ngIf="note.reminder!==null">
+            <!-- <mat-icon matIcon>access_time</mat-icon> -->
+            {{note?.reminder}}
+            <mat-icon matChipRemove (click)="deleteReminder()" *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <mat-chip *ngFor="let item of note.label">
+            {{item?.label_name}}
+            <mat-icon matChipRemove (click)="deleteLabel()" *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+    </mat-chip-list>
+    <app-icons (color)="setColor($event)" 
+    (setReminder)="setReminder($event)"
+    (archive)="setArchive($event)">
+    </app-icons>
+</mat-card>

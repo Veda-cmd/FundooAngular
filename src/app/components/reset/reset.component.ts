@@ -37,7 +37,7 @@ export class ResetComponent implements OnInit {
       resetToken:this.route.snapshot.params.token
     })
 
-    this.user.reset("http://localhost:5000/reset",request,headers).subscribe((response:HttpResponse<any>)=>{ 
+    this.user.reset(request,headers).subscribe((response:HttpResponse<any>)=>{ 
       alert("Password has been reset successfully.");
       this.router.navigate(['/login']);
     },(error)=>{

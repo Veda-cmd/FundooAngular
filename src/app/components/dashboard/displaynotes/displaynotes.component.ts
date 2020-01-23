@@ -19,11 +19,35 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   pinNote(){
-    this.pinned=true;
+    let request={
+      note_id:this.note.id,
+      isPinned:true,
+      isArchived:this.note.isArchived===true?false:this.note.isArchived
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit(null);
+      // console.log(response);
+      
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
   }
 
   unpinNote(){
     this.pinned=false;
+    let request={
+      note_id:this.note.id,
+      isPinned:false,
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit(null);
+      // console.log(response);
+      
+    },(error)=>{
+        console.log("Error occurred",error)
+    })
   }
 
   setReminder(data:Date){
@@ -35,13 +59,13 @@ export class DisplaynotesComponent implements OnInit {
       reminder:reminder
     }
 
-    this.noteService.addReminder("http://localhost:5000/note/addReminder",request,null).subscribe((response:any)=>{ 
+    this.noteService.addReminder(request,null).subscribe((response:any)=>{ 
       this.getNotes.emit(null);
       // console.log(response);
       
     },(error)=>{
         console.log("Error occurred",error)
-    })
+    });
   }
 
   deleteReminder(){
@@ -49,10 +73,40 @@ export class DisplaynotesComponent implements OnInit {
       note_id:this.note.id,
     }
 
-    this.noteService.deleteReminder("http://localhost:5000/note/deleteReminder",request,null).subscribe((response:any)=>{ 
+    this.noteService.deleteReminder(request,null).subscribe((response:any)=>{ 
       this.getNotes.emit(null);
       console.log(response);
 
+    },(error)=>{
+        console.log("Error occurred",error)
+    })
+  }
+
+  setColor(data:any){
+    let request = {
+      note_id:this.note.id,
+      color:data.code,
+      isPinned:this.note.isPinned===true?true:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit(null);
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    })
+  }
+
+  setArchive(){
+    let request = {
+      note_id:this.note.id,
+      isArchived:true,
+      isPinned:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit(null);
+      // console.log(response);
     },(error)=>{
         console.log("Error occurred",error)
     })
