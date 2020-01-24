@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import {UserService} from '../../services/user.service';
 
-
 var passwordPattern = /^[a-zA-Z0-9]{6,20}$/;
 
 @Component({
@@ -28,7 +27,7 @@ export class ResetComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.route.snapshot.params.token);
+    // console.log(this.route.snapshot.params.token);
     let request={
       new_password:this.password
     }

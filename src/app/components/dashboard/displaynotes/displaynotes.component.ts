@@ -9,8 +9,8 @@ import { NoteService } from 'src/app/services/note.service';
 export class DisplaynotesComponent implements OnInit {
   @Input() note:any;
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
+  @Output() pinNotes: EventEmitter<any> = new EventEmitter();
 
-  pinned:boolean=false;
   removable:boolean=true;
 
   constructor(private noteService:NoteService) { }
@@ -27,6 +27,7 @@ export class DisplaynotesComponent implements OnInit {
 
     this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
       this.getNotes.emit(null);
+      this.pinNotes.emit();
       // console.log(response);
       
     },(error)=>{
@@ -35,14 +36,14 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   unpinNote(){
-    this.pinned=false;
     let request={
       note_id:this.note.id,
       isPinned:false,
     }
 
     this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
-      this.getNotes.emit(null);
+      this.getNotes.emit();
+      this.pinNotes.emit();
       // console.log(response);
       
     },(error)=>{
@@ -61,7 +62,7 @@ export class DisplaynotesComponent implements OnInit {
 
     this.noteService.addReminder(request,null).subscribe((response:any)=>{ 
       this.getNotes.emit(null);
-      // console.log(response);
+      console.log(response);
       
     },(error)=>{
         console.log("Error occurred",error)
@@ -89,8 +90,14 @@ export class DisplaynotesComponent implements OnInit {
       isPinned:this.note.isPinned===true?true:false
     }
 
-    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
-      this.getNotes.emit(null);
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{
+      
+      if(this.note.isPinned===true){
+        this.pinNotes.emit();
+      }
+      else{
+        this.getNotes.emit(null);
+      }
       // console.log(response);
     },(error)=>{
         console.log("Error occurred",error)
@@ -106,6 +113,7 @@ export class DisplaynotesComponent implements OnInit {
 
     this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
       this.getNotes.emit(null);
+      this.pinNotes.emit();
       // console.log(response);
     },(error)=>{
         console.log("Error occurred",error)

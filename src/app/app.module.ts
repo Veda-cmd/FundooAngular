@@ -25,6 +25,7 @@ import { AvatarModule } from 'ngx-avatar';
 import { ArchiveComponent } from './components/dashboard/archive/archive.component';
 import { TrashComponent } from './components/dashboard/trash/trash.component';
 import { LabelsComponent } from './components/dashboard/labels/labels.component';
+import { LabelDialogComponent } from './components/dashboard/label-dialog/label-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +45,10 @@ import { LabelsComponent } from './components/dashboard/labels/labels.component'
     IconsComponent,
     ArchiveComponent,
     TrashComponent,
-    LabelsComponent
+    LabelsComponent,
+    LabelDialogComponent
   ],
+  entryComponents: [LabelDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

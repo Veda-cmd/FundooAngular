@@ -1,1 +1,9 @@
-<p>labels works!</p>
+<app-createnote (getNotes)="getNotes($event)" ></app-createnote>
+<p class="heading" *ngIf="pinnedLength!==0">Pinned</p>
+<div class="displayArea" *ngIf="pinnedLength!==0">
+    <app-displaynotes (pinNotes)="getPinnedNotes($event)" (getNotes)="getNotes($event)" *ngFor="let item of pinned" [note]="item"></app-displaynotes>
+</div>
+<p class="heading" *ngIf="pinnedLength!==0 && notesLength!==0">Others</p>
+<div class="displayArea">
+    <app-displaynotes (pinNotes)="getPinnedNotes($event)" (getNotes)="getNotes($event)" *ngFor="let item of notes" [note]="item"></app-displaynotes>
+</div>

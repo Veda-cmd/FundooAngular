@@ -25,3 +25,10 @@ mat-list mat-list-item{
     text-transform: uppercase;
     padding: 15px 24px 10px;
 }
+
+mat-list-item:hover{
+    background-color: #f1f3f4;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+}

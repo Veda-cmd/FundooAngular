@@ -18,6 +18,14 @@ export class NoteService {
     return this.http.get(environment.url+'note/getAllNotes');
   }
 
+  getListings(request:string){
+    return this.http.get(environment.url+'note/getListings?'+request);
+  }
+
+  addNote(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'note/addNote',request,headers);
+  }
+
   addReminder(request:Object,headers:HttpHeaders){
     return this.http.post(environment.url+'note/addReminder',request,headers);
   }
