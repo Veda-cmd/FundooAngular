@@ -10,7 +10,6 @@ export class DisplaynotesComponent implements OnInit {
   @Input() note:any;
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
   @Output() pinNotes: EventEmitter<any> = new EventEmitter();
-
   removable:boolean=true;
 
   constructor(private noteService:NoteService) { }
@@ -61,8 +60,13 @@ export class DisplaynotesComponent implements OnInit {
     }
 
     this.noteService.addReminder(request,null).subscribe((response:any)=>{ 
-      this.getNotes.emit(null);
-      console.log(response);
+      if(this.note.isPinned===true){
+        this.pinNotes.emit();
+      }
+      else{
+        this.getNotes.emit(null);
+      }
+      // console.log(response);
       
     },(error)=>{
         console.log("Error occurred",error)
@@ -75,8 +79,13 @@ export class DisplaynotesComponent implements OnInit {
     }
 
     this.noteService.deleteReminder(request,null).subscribe((response:any)=>{ 
-      this.getNotes.emit(null);
-      console.log(response);
+      if(this.note.isPinned===true){
+        this.pinNotes.emit();
+      }
+      else{
+        this.getNotes.emit(null);
+      }
+      // console.log(response);
 
     },(error)=>{
         console.log("Error occurred",error)

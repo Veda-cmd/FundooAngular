@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-reminders',
@@ -13,7 +14,7 @@ export class RemindersComponent implements OnInit {
   pinnedLength:number;
   notesLength:number;
 
-  constructor(private note:NoteService) { }
+  constructor(private note:NoteService,private data:DataService) { }
 
   ngOnInit() {
     this.getNotes();

@@ -16,7 +16,6 @@ mat-list mat-list-item{
 
 .labels{
     color: #5f6368;
-    cursor: default;
     letter-spacing: .07272727em;
     font-family: Roboto,Arial,sans-serif;
     font-size: .6875rem;
@@ -27,8 +26,15 @@ mat-list mat-list-item{
 }
 
 mat-list-item:hover{
-    background-color: #f1f3f4;
+    background-color: rgba(0,0,0,0.12);
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+}
 
+.reminders,.edit{
+    margin-bottom: 5px;
+}
+
+.archive{
+    margin-top: 5px;
 }

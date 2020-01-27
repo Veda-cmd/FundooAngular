@@ -12,11 +12,15 @@ export class ToolbarComponent implements OnInit {
   labels: [];
   image: string = sessionStorage.getItem("image");
   grid:boolean=false;
+  title:string;
 
   constructor(private data: DataService,private router:Router) {}
 
   ngOnInit() {
     this.data.open.subscribe(value => this.open = value);
+    this.data.title.subscribe(value=>{
+      this.title=value;
+    })
   }
 
   openDrawer() {

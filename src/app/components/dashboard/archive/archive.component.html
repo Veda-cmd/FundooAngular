@@ -1,1 +1,4 @@
-<p>archive works!</p>
+<app-createnote (getNotes)="getNotes($event)" ></app-createnote>
+<div class="displayArea">
+    <app-displaynotes (pinNotes)="getPinnedNotes($event)" (getNotes)="getNotes($event)" *ngFor="let item of archived" [note]="item"></app-displaynotes>
+</div>

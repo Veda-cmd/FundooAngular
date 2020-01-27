@@ -1,12 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 import { LabelDialogComponent } from '../label-dialog/label-dialog.component';
-
-export interface DialogData {
- labels:Array<any>
-}
 
 @Component({
   selector: 'app-drawer',
@@ -15,7 +11,7 @@ export interface DialogData {
 })
 export class DrawerComponent implements OnInit {
   open:boolean;
-  @Input() labels:Array<any>
+  @Input() labels:Array<any>;
   
   constructor(private data:DataService,private router:Router,public dialog: MatDialog) {}
 
@@ -24,14 +20,17 @@ export class DrawerComponent implements OnInit {
   }
 
   openNotes(){
+    this.data.changeTitle("Fundoo");
     this.router.navigate(["/dashboard/notes"]);
   }
 
   openReminders(){
+    this.data.changeTitle("Reminders");
     this.router.navigate(["/dashboard/reminders"]);
   }
 
   openLabel(label:string){
+    this.data.changeTitle(label);
     this.router.navigate(["/dashboard/label/"+label]);
   }
 
@@ -46,8 +45,7 @@ export class DrawerComponent implements OnInit {
   editLabel(){
     this.dialog.open(LabelDialogComponent,{
       minHeight: '300px',
-      width: '400px',
-      data:{labels:this.labels}
+      width: '320px',
     })
   }
 }

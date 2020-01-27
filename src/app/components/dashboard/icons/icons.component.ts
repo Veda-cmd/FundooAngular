@@ -19,14 +19,14 @@ export class IconsComponent implements OnInit {
     { code: '#CBF0F8', name: 'Blue'},
     { code: '#AECBFA', name: 'Dark Blue'}
   ]
+  @Input() archivedNote:any;
   @ViewChild(MatMenuTrigger,{static:true}) trigger: MatMenuTrigger;
   @Output() setReminder: EventEmitter<any> = new EventEmitter();
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
 
-
-
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

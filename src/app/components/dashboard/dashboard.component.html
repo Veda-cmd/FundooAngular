@@ -1,2 +1,2 @@
 <app-toolbar></app-toolbar>
-<app-drawer [labels]="labels"></app-drawer>
+<app-drawer (getLabels)="getLabels($event)" [labels]="labels"></app-drawer>

@@ -38,5 +38,17 @@ export class NoteService {
     return this.http.post(environment.url+'note/updateNote',request,headers);
   }
 
+  addLabel(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'label/add',request,headers);
+  }
+
+  deleteLabel(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'label/delete',request,headers);
+  }
+
+  updateLabel(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'label/update',request,headers);
+  }
+
   
 }

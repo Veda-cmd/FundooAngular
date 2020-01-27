@@ -7,3 +7,85 @@
     line-height: 1.5rem;
     height: 25px;
 }
+
+.create{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 4px 0px 0px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    color: #3c4043;
+    font-family: 'Roboto',arial,sans-serif;
+    height: 25px;
+    outline: none;
+    padding: 0;
+}
+
+.create:focus,.create:active{
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.labelCreate{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+#show #delete,#show:hover #label{
+    display: none;
+}
+
+#show:hover #delete{
+    display: inline;
+}
+
+#show:hover #delete,.rename,.labelIcon{
+    cursor: pointer;
+}
+
+.labelEdit{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px 0px 0px 5px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    box-shadow: none;
+    color: #3c4043;
+    font-family: 'Roboto',arial,sans-serif;
+    height: 25px;
+    outline: none;
+    padding: 0;
+}
+
+.done{
+    border-top: 1px solid #dadce0;
+    padding: 15px 10px;
+    text-align: right;
+}
+
+.button{
+    cursor: pointer;
+    display: inline-block;
+    outline: none!important;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    height: 36px;
+    padding: 8px 24px;
+    border-radius: 4px;
+}
+
+.button:hover{
+    background-color: rgba(95,99,104,0.039);
+}

@@ -1,22 +1,58 @@
 <div class="label">Edit Labels</div>
 <div>
-    <mat-icon>
-        <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 48 48" fill="grey">
-            <path d="m38 26h-12v12h-4v-12h-12v-4h12v-12h4v12h12v4z"/>
-            <path d="m0 0h48v48h-48z" fill="none"/>
-        </svg>
-    </mat-icon>
-    <input placeholder="Create label" />
-</div>
-
-<mat-list role="list">
-    <mat-list-item *ngFor="let item of labels">
-        <mat-icon matListIcon matPrefix>
-            <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" viewBox="0 0 48 48" fill="grey">
-                <path d="m0 0h48v48h-48z" fill="none"/>
-                <path d="m35.27 11.69c-0.73-1.02-1.92-1.69-3.27-1.69l-22 0.02c-2.21 0-4 1.77-4 3.98v20c0 2.21 1.79 3.98 4 3.98l22 0.02c1.35 0 2.54-0.67 3.27-1.69l8.73-12.31-8.73-12.31z"/>
+    <div class="labelCreate">
+        <mat-icon class="labelIcon" *ngIf="!add" (click)="changeIcon()" matTooltip="Create Label">
+            <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 48 48" fill="grey">
+                <path d="m38 26h-12v12h-4v-12h-12v-4h12v-12h4v12h12v4z" />
+                <path d="m0 0h48v48h-48z" fill="none" />
             </svg>
         </mat-icon>
-        <h4 matLine>{{item.label_name}}</h4>
-    </mat-list-item>
-</mat-list>
+        <mat-icon class="labelIcon" *ngIf="add" (click)="changeIcon()" matTooltip="Cancel">
+            <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 18 18" fill="grey">
+                <path d="m0 0h18v18h-18zh18v18h-18z" fill="none"/>
+                <path d="m14.53 4.53l-1.06-1.06-4.47 4.47-4.47-4.47-1.06 1.06 4.47 4.47-4.47 4.47 1.06 1.06 4.47-4.47 4.47 4.47 1.06-1.06-4.47-4.47z"/>
+            </svg>
+        </mat-icon>
+        <input class="create" [(ngModel)]="createname" (input)="changeInput()" (click)="changeInput()" placeholder="Create label" />
+        <mat-icon class="labelIcon" (click)="addLabel()" *ngIf="add" matTooltip="Create Label">
+            <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 18 18" fill="grey">
+                <path d="m0 0h18v18h-18z" fill="none" />
+                <path d="m6.61 11.89l-3.11-3.11-1.06 1.06 4.17 4.16 8.95-8.95-1.06-1.05z" />
+            </svg>
+        </mat-icon>
+    </div>
+    <mat-list role="list">
+        <mat-list-item id="show" *ngFor="let item of labels">
+            <mat-icon matListIcon id="label">
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" viewBox="0 0 48 48" fill="grey">
+                    <path d="m0 0h48v48h-48z" fill="none" />
+                    <path
+                        d="m35.27 11.69c-0.73-1.02-1.92-1.69-3.27-1.69l-22 0.02c-2.21 0-4 1.77-4 3.98v20c0 2.21 1.79 3.98 4 3.98l22 0.02c1.35 0 2.54-0.67 3.27-1.69l8.73-12.31-8.73-12.31z" />
+                </svg>
+            </mat-icon>
+            <mat-icon matListIcon id="delete" matTooltip="Delete Label" (click)="deleteLabel(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 48 48" fill="grey">
+                    <path d="m12 38c0 2.21 1.79 4 4 4h16c2.21 0 4-1.79 4-4v-24h-24v24zm26-30h-7l-2-2h-10l-2 2h-7v4h28v-4z"/>
+                    <path d="m0 0h48v48h-48z" fill="none"/>
+                </svg>
+            </mat-icon>
+            <h4 matLine *ngIf="item._id!==id" (click)="rename(item)">{{item.label_name}}</h4>
+            <input class="labelEdit" *ngIf="item._id===id" [(ngModel)]="name" />
+            <mat-icon class="rename" *ngIf="item._id!==id" matTooltip="Rename Label" (click)="rename(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 48 48" fill="grey">
+                    <path d="m6 34.5v7.5h7.5l22.13-22.13-7.5-7.5-22.13 22.13zm35.41-20.41c0.78-0.78 0.78-2.05 0-2.83l-4.67-4.67c-0.78-0.78-2.05-0.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z"/>
+                    <path d="m0 0h48v48h-48z" fill="none"/>
+                </svg>
+            </mat-icon>
+            <mat-icon class="rename" *ngIf="item._id===id" matTooltip="Rename Label" (click)="renameLabel(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 18 18" fill="grey">
+                    <path d="m0 0h18v18h-18z" fill="none" />
+                    <path d="m6.61 11.89l-3.11-3.11-1.06 1.06 4.17 4.16 8.95-8.95-1.06-1.05z" />
+                </svg>
+            </mat-icon>
+        </mat-list-item>
+    </mat-list>
+</div>
+<div class="done">
+    <div (click)="done()" role="button" class="button">Done</div>
+</div>

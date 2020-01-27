@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-notes',
@@ -12,11 +13,13 @@ export class NotesComponent implements OnInit {
   pinned:Array<any>;
   pinnedLength:number;
 
-  constructor(private note:NoteService) { }
+  constructor(private note:NoteService,private data:DataService) { }
 
   ngOnInit() {
-    this.getNotes();
-    this.getPinnedNotes();
+    this.data.notes.subscribe(value=>{
+      this.getNotes();
+      this.getPinnedNotes();
+    })
   }
 
   getNotes(){
