@@ -27,7 +27,7 @@
         </mat-chip>
     </mat-chip-list>
     <div class="tools">
-        <app-icons class="iconslist" (setReminder)="setReminder($event)" (color)="setColor($event)"
+        <app-icons class="iconslist" [archivedNote]="noteArchive" (setReminder)="setReminder($event)" (color)="setColor($event)"
         (archive)="setArchive($event)">
         </app-icons>
         <button class="close" (click)="onClose()">Close</button>

@@ -18,6 +18,7 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.data.open.subscribe(value => this.open = value);
+    this.data.list.subscribe(value => this.grid = value);
     this.data.title.subscribe(value=>{
       this.title=value;
     })
@@ -28,7 +29,7 @@ export class ToolbarComponent implements OnInit {
   }
   
   changeView(){
-    this.grid=!this.grid;
+    this.data.changeList(!this.grid);
   }
 
   signOut(){

@@ -15,6 +15,11 @@ export class CreatenoteComponent implements OnInit {
   reminderFront: string=null;
   color: string=null;
   pinned:boolean=false;
+  noteArchive={
+    title:null,
+    isArchived:false,
+    isTrash:false
+  }
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
 
   constructor(private note: NoteService) {
@@ -92,6 +97,7 @@ export class CreatenoteComponent implements OnInit {
 
   onClose(){
     if(this.title===null){
+      this.resetValues();
       this.onClick();
     }
     else if(this.title.length!=0){
@@ -109,6 +115,7 @@ export class CreatenoteComponent implements OnInit {
         this.getNotes.emit();
       },(error)=>{
         console.log("error occurred",error);
+        alert("Error occured in creating note.Please try again.")
         this.resetValues();
         this.onClick();
       })

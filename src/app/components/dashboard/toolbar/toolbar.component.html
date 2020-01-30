@@ -1,10 +1,13 @@
 <mat-toolbar color="primary">
     <mat-icon class="menu" matTooltip="Main menu" (click)="openDrawer()" matIcon>menu</mat-icon>
-    <div class="main">
-        <img *ngIf="title==='Fundoo'" alt="title" class="image" aria-hidden="true"
+    <div class="main" *ngIf="title==='Fundoo'">
+        <img alt="title" class="image" aria-hidden="true"
             src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"
             srcset="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png 1x, https://www.gstatic.com/images/branding/product/2x/keep_48dp.png 2x " />
         <span class="title">{{title}}</span>
+    </div>
+    <div class="other-main" *ngIf="title!=='Fundoo'">
+        <span class="other-title">{{title}}</span>
     </div>
     <div class="ui-g-12 ui-md-6">
         <div class="ui-inputgroup">

@@ -20,15 +20,19 @@ export class IconsComponent implements OnInit {
     { code: '#AECBFA', name: 'Dark Blue'}
   ]
   @Input() archivedNote:any;
-  @ViewChild(MatMenuTrigger,{static:true}) trigger: MatMenuTrigger;
+  @ViewChild(MatMenuTrigger,{static:false}) trigger: MatMenuTrigger;
   @Output() setReminder: EventEmitter<any> = new EventEmitter();
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
+  @Output() delete: EventEmitter<any> = new EventEmitter();
+  @Output() label: EventEmitter<any> = new EventEmitter();
+  @Output() labelchange: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
+    
   }
 
   callReminder(){
@@ -42,6 +46,14 @@ export class IconsComponent implements OnInit {
 
   setArchive(){
     this.archive.emit();
+  }
+
+  deleteNote(){
+    this.delete.emit();
+  }
+
+  openLabel(item:any){
+    this.labelchange.emit(item);
   }
 
 }

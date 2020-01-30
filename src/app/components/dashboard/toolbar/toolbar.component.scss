@@ -13,6 +13,19 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.other-main{
+    width:150px;
+    margin-left: 25px;
+}
+
+.other-title{
+    display: inline-block;
+    color: #f5862b;
+    opacity: 1;
+    font-family: 'Product Sans',Arial,sans-serif;
+    font-size: 22px;
+}
+
 .menu{
     cursor: pointer;
 }
@@ -23,6 +36,7 @@
 }
 
 .main{
+    width:150px;
     margin-left: 25px;
     margin-top: 5px;
 }

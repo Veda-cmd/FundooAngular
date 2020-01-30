@@ -1,0 +1,11 @@
+.trash{
+    margin:20px;
+}
+
+.delete,.trash{
+    cursor: pointer;
+}
+
+.delete:hover,.trash:hover{
+    opacity: .71;
+}

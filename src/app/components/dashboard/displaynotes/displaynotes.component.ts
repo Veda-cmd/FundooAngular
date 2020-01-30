@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
+import { DataService } from 'src/app/services/data.service';
+
 
 @Component({
   selector: 'app-displaynotes',
@@ -11,10 +13,12 @@ export class DisplaynotesComponent implements OnInit {
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
   @Output() pinNotes: EventEmitter<any> = new EventEmitter();
   removable:boolean=true;
+  open:boolean=false;
 
-  constructor(private noteService:NoteService) { }
+  constructor(private noteService:NoteService,private data:DataService) { }
 
   ngOnInit() {
+    this.data.list.subscribe(value => this.open = value);
   }
 
   pinNote(){
@@ -92,6 +96,24 @@ export class DisplaynotesComponent implements OnInit {
     })
   }
 
+  deleteLabel(item:any){
+    let request={
+      note_id:this.note.id,
+      label_id:item._id
+    }
+    
+    this.noteService.deleteLabelFromNote(request,null).subscribe((response:any)=>{
+      if(this.note.isPinned!==false){
+        this.pinNotes.emit();
+      }
+      else{
+        this.getNotes.emit(null);
+      }
+    },(error)=>{
+      console.log("Error occurred",error);
+    }) 
+  }
+
   setColor(data:any){
     let request = {
       note_id:this.note.id,
@@ -126,6 +148,66 @@ export class DisplaynotesComponent implements OnInit {
       // console.log(response);
     },(error)=>{
         console.log("Error occurred",error)
-    })
+    });
+  }
+
+  deleteNote(){
+    let request={
+      note_id:this.note.id,
+    }
+
+    this.noteService.deleteNote(request,null).subscribe((response:any)=>{ 
+      if(this.note.isPinned!==false){
+        this.pinNotes.emit();
+      }
+      else{
+        this.getNotes.emit(null);
+      }
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
+  changeLabel(item:any){
+    // console.log(item);
+    
+    if(item.value===true){
+      let request={
+        note_id:this.note.id,
+        label_name:item.label.label_name
+      }
+      this.noteService.addLabelToNote(request,null).subscribe((response:any)=>{
+        if(this.note.isPinned!==false){
+          this.pinNotes.emit();
+        }
+        else{
+          this.getNotes.emit(null);
+        }
+      },(error)=>{
+        console.log("Error occurred",error);
+      });
+    }
+    else{
+      let request={
+        note_id:this.note.id,
+        label_id:item.label._id
+      }
+      
+      this.noteService.deleteLabelFromNote(request,null).subscribe((response:any)=>{
+        if(this.note.isPinned!==false){
+          this.pinNotes.emit();
+        }
+        else{
+          this.getNotes.emit(null);
+        }
+      },(error)=>{
+        console.log("Error occurred",error);
+      }) 
+    }
+  }
+
+  openNoteDialog(){
+    
   }
 }

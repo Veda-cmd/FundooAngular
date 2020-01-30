@@ -1,4 +1,4 @@
-<div class="icons">
+<div class="icons" *ngIf="archivedNote.isTrash!==true">
     <mat-icon matIcon class="reminders" matTooltip="Remind me" [matMenuTriggerFor]="appMenu">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
             <path d="M13 9h-2v2H9v2h2v2h2v-2h2v-2h-2z"/>
@@ -20,19 +20,31 @@
             <mat-icon (click)="setColor(color)" class="color" *ngFor="let color of array" matIcon [style.background]="color?.code" [matTooltip]="color?.name"></mat-icon>
         </div> 
     </mat-menu>
-    <mat-icon *ngIf="archivedNote.isArchived!==true;else archived" matIcon (click)="setArchive()" class="reminders" matTooltip="Archive">
+    <mat-icon *ngIf="archivedNote.isArchived!==true" matIcon (click)="setArchive()" class="reminders" matTooltip="Archive">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
             <path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.42l.82-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.59L16 13.5z"/>
         </svg>
     </mat-icon>
-    <mat-icon id="archived" matIcon (click)="setUnArchive()" class="reminders" matTooltip="Unarchive">
+    <mat-icon *ngIf="archivedNote.isArchived===true" matIcon (click)="setUnArchive()" class="reminders" matTooltip="Unarchive">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
             <path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.42l.82-1zM5 19V8h14v11H5zm3-5.5l4-4 4 4-1.41 1.41L13 13.33V17h-2v-3.67l-1.59 1.59L8 13.5z"/>
         </svg>
     </mat-icon>
-    <mat-icon matIcon class="reminders" matTooltip="More">
-        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="22" height="22" xml:space="preserve" version="1.1" viewBox="0 0 18 18" enable-background="new 0 0 18 18">
+    <mat-icon matIcon class="reminders" matTooltip="More" [matMenuTriggerFor]="moreMenu">
+        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" width="22" height="22" xml:space="preserve" version="1.1" viewBox="0 0 18 18">
             <path d="m9 5.5c1 0 1.8-0.8 1.8-1.8s-0.8-1.7-1.8-1.7-1.8 0.8-1.8 1.8 0.8 1.7 1.8 1.7zm0 1.7c-1 0-1.8 0.8-1.8 1.8s0.8 1.8 1.8 1.8 1.8-0.8 1.8-1.8-0.8-1.8-1.8-1.8zm0 5.3c-1 0-1.8 0.8-1.8 1.8s0.8 1.7 1.8 1.7 1.8-0.8 1.8-1.8-0.8-1.7-1.8-1.7z"/>
         </svg>
     </mat-icon>
+    <mat-menu #moreMenu="matMenu">
+        <div (click)="deleteNote()" class="delete-icon" role="menuitem" *ngIf="archivedNote.title!==null">
+            <div class="delete-icon-delete">Delete Note</div>
+        </div>
+        <div class="delete-icon" role="menuitem">
+            <div mat-menu-item [matMenuTriggerFor]="labelMenu">Add Label</div>
+        </div>
+    </mat-menu>
+    <mat-menu #labelMenu="matMenu">
+        <app-labelmenu [note]="archivedNote" (changeLabels)="openLabel($event)"></app-labelmenu>
+    </mat-menu>
 </div>
+<app-trashicons class="icons" *ngIf="archivedNote.isTrash===true"></app-trashicons>

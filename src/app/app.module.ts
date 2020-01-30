@@ -26,6 +26,9 @@ import { ArchiveComponent } from './components/dashboard/archive/archive.compone
 import { TrashComponent } from './components/dashboard/trash/trash.component';
 import { LabelsComponent } from './components/dashboard/labels/labels.component';
 import { LabelDialogComponent } from './components/dashboard/label-dialog/label-dialog.component';
+import { TrashiconsComponent } from './components/dashboard/trashicons/trashicons.component';
+import { LabelmenuComponent } from './components/dashboard/labelmenu/labelmenu.component';
+import { NotedialogComponent } from './components/dashboard/notedialog/notedialog.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,10 @@ import { LabelDialogComponent } from './components/dashboard/label-dialog/label-
     ArchiveComponent,
     TrashComponent,
     LabelsComponent,
-    LabelDialogComponent
+    LabelDialogComponent,
+    TrashiconsComponent,
+    LabelmenuComponent,
+    NotedialogComponent
   ],
   entryComponents: [LabelDialogComponent],
   imports: [

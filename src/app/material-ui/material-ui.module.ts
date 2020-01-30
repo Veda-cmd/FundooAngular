@@ -11,6 +11,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {InputTextModule} from 'primeng/inputtext';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ButtonModule} from 'primeng/button';
 
 @NgModule({
@@ -29,6 +30,7 @@ import {ButtonModule} from 'primeng/button';
     MatDividerModule,
     MatChipsModule,
     MatDialogModule,
+    MatCheckboxModule,
     InputTextModule,
     ButtonModule
   ]

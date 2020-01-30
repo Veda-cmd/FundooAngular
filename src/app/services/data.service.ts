@@ -12,7 +12,10 @@ export class DataService {
   private notesSource = new BehaviorSubject(this.labelValue);
   private labelsArr = new BehaviorSubject(this.labelValue);
   private titleSource = new BehaviorSubject("Fundoo");
+  private listSource = new BehaviorSubject(false);
+
   open = this.messageSource.asObservable();
+  list = this.listSource.asObservable();
   title=this.titleSource.asObservable();
   labels=this.labelSource.asObservable();
   labelArray= this.labelsArr.asObservable();
@@ -22,6 +25,10 @@ export class DataService {
 
   changeValue(value: boolean) {
     this.messageSource.next(value);
+  }
+
+  changeList(value: boolean) {
+    this.listSource.next(value);
   }
 
   changeTitle(value: string) {

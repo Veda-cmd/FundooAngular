@@ -1,9 +1,28 @@
 .card{
     width: 300px;
-    min-height: 100px;
+    min-height: 150px;
     margin:5px;
     border-radius: 15px;
+    // .iconlist{
+    //     display: none;
+    // }
 }
+
+.card-list{
+    width: 800px;
+    min-height: 150px;
+    margin: 8px;
+    border-radius: 15px;
+    .description,.inputTitle{
+        width:730px
+    }
+}
+
+// .card:hover{
+//     .iconlist{
+//         display: flex;
+//     }
+// }
 
 .displayArea{
     display: flex;
@@ -52,3 +71,4 @@
 .pin:hover,.unpin:hover{
     opacity: .71;
 }
+

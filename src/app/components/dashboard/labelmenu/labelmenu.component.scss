@@ -1,0 +1,45 @@
+.div{
+    width: 200px;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    padding: 8px 12px;
+    position: relative;
+    transition: box-shadow .218s;
+}
+
+.icon{
+    margin-bottom: 2px;
+}
+
+.input{
+    box-sizing: border-box;
+    height: auto;
+    padding: 2px 22px 2px 2px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    box-shadow: none;
+    color: #3c4043;
+    font-size: 13px;
+    font-family: 'Roboto',arial,sans-serif;
+    outline: none;
+}
+
+.menu-item{
+    cursor: pointer;
+}
+
+.label-name{
+    display: inline-block;
+    margin-left: 7px;
+}
+
+.label-title{
+    cursor: default;
+    font-size: 14px;
+    padding: 0 12px;
+}

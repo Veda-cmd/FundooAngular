@@ -35,10 +35,12 @@ export class DrawerComponent implements OnInit {
   }
 
   openArchive(){
+    this.data.changeTitle("Archive");
     this.router.navigate(["/dashboard/archive"]);
   }
 
   openTrash(){
+    this.data.changeTitle("Trash");
     this.router.navigate(["/dashboard/trash"]);
   }
 

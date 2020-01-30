@@ -38,6 +38,18 @@ export class NoteService {
     return this.http.post(environment.url+'note/updateNote',request,headers);
   }
 
+  deleteNote(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'note/deleteNote',request,headers);
+  }
+
+  addLabelToNote(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'note/addLabel',request,headers);
+  }
+
+  deleteLabelFromNote(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'note/deleteLabel',request,headers);
+  }
+
   addLabel(request:Object,headers:HttpHeaders){
     return this.http.post(environment.url+'label/add',request,headers);
   }

@@ -21,7 +21,7 @@ export class ArchiveComponent implements OnInit {
       let array = response.filter((element:any)=>{
         return element.isArchived !== false;
       });
-     this.archived = array;
+     this.archived = array.reverse();
       },(error)=>{
         console.log("Error occurred",error)
     });
