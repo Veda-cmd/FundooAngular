@@ -54,7 +54,8 @@ import { NotedialogComponent } from './components/dashboard/notedialog/notedialo
     LabelmenuComponent,
     NotedialogComponent
   ],
-  entryComponents: [LabelDialogComponent],
+  entryComponents: [LabelDialogComponent,
+  NotedialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

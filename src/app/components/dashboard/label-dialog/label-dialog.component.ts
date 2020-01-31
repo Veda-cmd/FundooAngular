@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { NoteService } from 'src/app/services/note.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DataService } from 'src/app/services/data.service';

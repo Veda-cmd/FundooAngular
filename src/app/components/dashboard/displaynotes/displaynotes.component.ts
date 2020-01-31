@@ -1,12 +1,15 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
 import { DataService } from 'src/app/services/data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NotedialogComponent } from '../notedialog/notedialog.component';
 
 
 @Component({
   selector: 'app-displaynotes',
   templateUrl: './displaynotes.component.html',
-  styleUrls: ['./displaynotes.component.scss']
+  styleUrls: ['./displaynotes.component.scss'],
+  
 })
 export class DisplaynotesComponent implements OnInit {
   @Input() note:any;
@@ -15,7 +18,7 @@ export class DisplaynotesComponent implements OnInit {
   removable:boolean=true;
   open:boolean=false;
 
-  constructor(private noteService:NoteService,private data:DataService) { }
+  constructor(private noteService:NoteService,private data:DataService,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.data.list.subscribe(value => this.open = value);
@@ -208,6 +211,13 @@ export class DisplaynotesComponent implements OnInit {
   }
 
   openNoteDialog(){
-    
+    const dialogRef = this.dialog.open(NotedialogComponent,{
+      data:{note:this.note}
+    })
+
+    dialogRef.afterClosed().subscribe((result:any)=>{
+      console.log(result);
+      
+    })
   }
 }

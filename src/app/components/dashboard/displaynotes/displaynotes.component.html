@@ -25,19 +25,18 @@
         </mat-chip>
         <mat-chip *ngIf="note.label.length>0">
             {{note.label[0]?.label_name}}
-            <mat-icon matChipRemove (click)="deleteLabel(item)" *ngIf="removable">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="deleteLabel(note.label[0])" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
         <mat-chip *ngIf="note.label.length>1">
             {{note.label[1]?.label_name}}
-            <mat-icon matChipRemove (click)="deleteLabel(item)" *ngIf="removable">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="deleteLabel(note.label[1])" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
         <mat-chip *ngIf="note.label.length>2 && note.label.length===3">
             {{note.label[2]?.label_name}}
-            <mat-icon matChipRemove (click)="deleteLabel(item)" *ngIf="removable">cancel</mat-icon>
+            <mat-icon matChipRemove (click)="deleteLabel(note.label[2])" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
-        <mat-chip *ngIf="note.label.length>3">
+        <mat-chip *ngIf="note.label.length>3" (click)="openNoteDialog()">
             +{{note.label.length - 2}}
-            <mat-icon matChipRemove (click)="deleteLabel(item)" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
     </mat-chip-list>
     <app-icons [archivedNote]="note" (color)="setColor($event)" 

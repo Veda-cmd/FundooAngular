@@ -32,7 +32,7 @@ export class IconsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    // console.log(this.archivedNote);
   }
 
   callReminder(){

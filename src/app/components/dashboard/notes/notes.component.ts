@@ -12,6 +12,7 @@ export class NotesComponent implements OnInit {
   notes:Array<any>;
   pinned:Array<any>;
   pinnedLength:number;
+  notesLength:number;
 
   constructor(private note:NoteService,private data:DataService) { }
 
@@ -25,6 +26,7 @@ export class NotesComponent implements OnInit {
   getNotes(){
     this.note.getNotes().subscribe((response:any)=>{ 
     this.notes = response.reverse();
+    this.notesLength=response.length;
     },(error)=>{
       console.log("Error occurred",error)
     });
