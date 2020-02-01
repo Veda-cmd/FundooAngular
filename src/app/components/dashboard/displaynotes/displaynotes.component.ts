@@ -154,6 +154,20 @@ export class DisplaynotesComponent implements OnInit {
     });
   }
 
+  setUnarchive(){
+    let request = {
+      note_id:this.note.id,
+      isArchived:false,
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit();
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
   deleteNote(){
     let request={
       note_id:this.note.id,
@@ -210,14 +224,72 @@ export class DisplaynotesComponent implements OnInit {
     }
   }
 
+  restoreNote(){
+    // console.log("restore",this.note);
+
+    let request={
+      note_id:this.note.id,
+      isTrash:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit(null);
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
+  deleteNotePermanent(){
+    // console.log("delete",this.note);
+
+    let request={
+      note_id:this.note.id,
+    }
+
+    this.noteService.deleteNotePermanent(request,null).subscribe((response:any)=>{ 
+      this.getNotes.emit(null);
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
   openNoteDialog(){
     const dialogRef = this.dialog.open(NotedialogComponent,{
       data:{note:this.note}
     })
 
     dialogRef.afterClosed().subscribe((result:any)=>{
-      console.log(result);
-      
+      // console.log(result);
+      if (result!==undefined && result!=="unarchive")
+      { 
+      //  console.log(result);
+
+        let request = {
+          note_id:result.note_id,
+          title:result.title,
+          description:result.description,
+          color:result.color,
+          isPinned:result.isPinned===true?true:false
+        }
+        this.noteService.updateNote(request,null).subscribe((response:any)=>{
+          // console.log(response);
+          if(result.isPinned===true){
+            this.pinNotes.emit();
+          }
+          else{
+            this.getNotes.emit();
+          }
+        },(error)=>{
+          console.log("Error occured",error);
+        })
+      }
+      else if(result === "unarchive"){
+      //  console.log(result);
+
+        this.getNotes.emit();
+      }
     })
   }
 }

@@ -1,6 +1,6 @@
 <mat-card [ngClass]="{'card-list': open===true, card:open!==true}" [style.background]="note?.color">
-    <div class="titlearea" (click)="openNoteDialog()">
-        <textarea class="inputTitle" readonly>{{note.title}}</textarea>
+    <div class="titlearea">
+        <textarea class="inputTitle" (click)="openNoteDialog()" readonly>{{note.title}}</textarea>
         <mat-icon matSuffix matTooltip="Pin Note" class="pin" (click)="pinNote()" *ngIf="note.isPinned===false && note.isTrash===false">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="gray">
                 <path fill="none" d="M0 0h24v24H0z" />
@@ -31,7 +31,7 @@
             {{note.label[1]?.label_name}}
             <mat-icon matChipRemove (click)="deleteLabel(note.label[1])" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
-        <mat-chip *ngIf="note.label.length>2 && note.label.length===3">
+        <mat-chip *ngIf="note.label.length===3">
             {{note.label[2]?.label_name}}
             <mat-icon matChipRemove (click)="deleteLabel(note.label[2])" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
@@ -42,7 +42,10 @@
     <app-icons [archivedNote]="note" (color)="setColor($event)" 
     (setReminder)="setReminder($event)"
     (archive)="setArchive($event)"
+    (unarchive)="setUnarchive($event)"
     (delete)="deleteNote($event)"
+    (restore)="restoreNote($event)"
+    (deletePermanent)="deleteNotePermanent($event)"
     (labelchange)="changeLabel($event)">
     </app-icons>
 </mat-card>

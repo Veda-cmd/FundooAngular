@@ -1,4 +1,4 @@
-<mat-card class="card" [style.background]="data.note?.color">
+<mat-card class="card" [style.background]="color">
     <div class="titlearea">
         <textarea class="inputTitle" placeholder="Title" [(ngModel)]="title">{{title}}</textarea>
         <mat-icon matSuffix matTooltip="Pin Note" class="pin" (click)="pinNote()" *ngIf="isPinned===false && isTrash===false">
@@ -32,6 +32,7 @@
         <app-icons [archivedNote]="data.note" (color)="setColor($event)" 
         (setReminder)="setReminder($event)"
         (archive)="setArchive($event)"
+        (unarchive)="setUnarchive($event)"
         (delete)="deleteNote($event)"
         (labelchange)="changeLabel($event)">
         </app-icons>

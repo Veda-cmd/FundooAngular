@@ -24,15 +24,17 @@ export class IconsComponent implements OnInit {
   @Output() setReminder: EventEmitter<any> = new EventEmitter();
   @Output() color: EventEmitter<any> = new EventEmitter();
   @Output() archive: EventEmitter<any> = new EventEmitter();
+  @Output() unarchive: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();
-  @Output() label: EventEmitter<any> = new EventEmitter();
+  // @Output() label: EventEmitter<any> = new EventEmitter();
   @Output() labelchange: EventEmitter<any> = new EventEmitter();
+  @Output() restore: EventEmitter<any> = new EventEmitter();
+  @Output() deletePermanent: EventEmitter<any> = new EventEmitter();
 
   constructor() {
   }
 
   ngOnInit() {
-    // console.log(this.archivedNote);
   }
 
   callReminder(){
@@ -48,12 +50,24 @@ export class IconsComponent implements OnInit {
     this.archive.emit();
   }
 
+  setUnArchive(){
+    this.unarchive.emit();
+  }
+
   deleteNote(){
     this.delete.emit();
   }
 
   openLabel(item:any){
     this.labelchange.emit(item);
+  }
+
+  restoreNote(){
+    this.restore.emit();
+  }
+
+  deleteNotePermanent(){
+    this.deletePermanent.emit();
   }
 
 }

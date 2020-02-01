@@ -25,9 +25,15 @@
         <mat-chip *ngIf="reminderFront!==null">{{reminderFront}}
             <mat-icon matChipRemove (click)="deleteReminder()" *ngIf="removable">cancel</mat-icon>
         </mat-chip>
+        <mat-chip *ngFor="let item of noteArchive.label">{{item.label_name}}
+            <mat-icon matChipRemove (click)="deleteLabel(item)" *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
     </mat-chip-list>
     <div class="tools">
-        <app-icons class="iconslist" [archivedNote]="noteArchive" (setReminder)="setReminder($event)" (color)="setColor($event)"
+        <app-icons class="iconslist" [archivedNote]="noteArchive" 
+        (setReminder)="setReminder($event)" 
+        (color)="setColor($event)"
+        (labelchange)="getLabel($event)"
         (archive)="setArchive($event)">
         </app-icons>
         <button class="close" (click)="onClose()">Close</button>

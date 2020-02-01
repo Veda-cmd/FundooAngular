@@ -35,6 +35,51 @@ export class NotedialogComponent implements OnInit {
     this.isTrash=this.data.note.isTrash
   }
 
+  setColor(data:any){
+    
+    let request = {
+      note_id:this.data.note.id,
+      color:data.code,
+      isPinned:this.data.note.isPinned===true?true:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{
+      // console.log(response);
+      this.color=data.code;
+    },(error)=>{
+        console.log("Error occurred",error)
+    })
+  }
+
+  pinNote(){
+    this.isPinned=true;
+    let request={
+      note_id:this.data.note.id,
+      isPinned:true,
+      isArchived:this.data.note.isArchived===true?false:this.data.note.isArchived
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
+  unpinNote(){
+    this.isPinned=false;
+    let request={
+      note_id:this.data.note.id,
+      isPinned:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
   setReminder(data:Date){
     let newDate = data.toString();
     this.reminder = newDate.slice(4, 10) + ',' + newDate.slice(11, 15) + ' ' + newDate.slice(16, 25);
@@ -113,8 +158,16 @@ export class NotedialogComponent implements OnInit {
 
   deleteNote(){
     let request={
-      note_id:this.data.note.id
+      note_id:this.data.note.id,
     }
+
+    this.noteService.deleteNote(request,null).subscribe((response:any)=>{
+      this.dialogRef.close(); 
+      this.dataService.updateNotes("update");
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
   }
 
   deleteLabel(item:any){
@@ -136,12 +189,42 @@ export class NotedialogComponent implements OnInit {
     }) 
   }
 
+  setArchive(){
+    let request = {
+      note_id:this.data.note.id,
+      isArchived:true,
+      isPinned:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.dialogRef.close(); 
+      this.dataService.updateNotes("update");
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
+  setUnarchive(){
+    let request = {
+      note_id:this.data.note.id,
+      isArchived:false
+    }
+
+    this.noteService.updateNote(request,null).subscribe((response:any)=>{ 
+      this.dialogRef.close("unarchive"); 
+      // console.log(response);
+    },(error)=>{
+        console.log("Error occurred",error)
+    });
+  }
+
   close(){
-    if(this.data.note.title !== this.title && this.data.note.description !== this.description){
-      this.dialogRef.close({title:this.title,description:this.description});
-    }
-    else{
-      this.dialogRef.close(null);
-    }
+    this.dialogRef.close({note_id:this.data.note.id,
+      title:this.title,
+      description:this.description,
+      isPinned:this.isPinned,
+      color:this.color
+    });
   }
 }

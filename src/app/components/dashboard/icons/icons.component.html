@@ -47,4 +47,6 @@
         <app-labelmenu [note]="archivedNote" (changeLabels)="openLabel($event)"></app-labelmenu>
     </mat-menu>
 </div>
-<app-trashicons class="icons" *ngIf="archivedNote.isTrash===true"></app-trashicons>
+<app-trashicons class="icons" *ngIf="archivedNote.isTrash===true"
+(restore)="restoreNote($event)"
+(delete)="deleteNotePermanent($event)"></app-trashicons>

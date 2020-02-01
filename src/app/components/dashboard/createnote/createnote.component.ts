@@ -17,6 +17,7 @@ export class CreatenoteComponent implements OnInit {
   pinned:boolean=false;
   noteArchive={
     title:null,
+    label:[],
     isArchived:false,
     isTrash:false
   }
@@ -39,6 +40,7 @@ export class CreatenoteComponent implements OnInit {
     this.reminderFront=null;
     this.reminder=null;
     this.pinned=false;
+    this.noteArchive.label=[]
   }
 
   setReminder(data: Date) {
@@ -95,19 +97,52 @@ export class CreatenoteComponent implements OnInit {
     this.pinned=!this.pinned;
   }
 
+  getLabel(item:any){
+    if(item.value===true){
+      this.noteArchive.label.push(item.label);
+    }
+    else{
+      for(let i=0;i<this.noteArchive.label.length;i++){
+        if(this.noteArchive.label[i]._id===item.label._id){
+          this.noteArchive.label.splice(i,1);
+        }
+      }
+    }
+  }
+
+  deleteLabel(item:any){
+    for(let i=0;i<this.noteArchive.label.length;i++){
+      if(this.noteArchive.label[i]._id===item._id){
+        this.noteArchive.label.splice(i,1);
+      }
+    }
+    
+  }
+
   onClose(){
     if(this.title===null){
       this.resetValues();
       this.onClick();
     }
     else if(this.title.length!=0){
+      let label = []
+
+      if(this.noteArchive.label.length!==0){
+        for(let i=0;i<this.noteArchive.label.length;i++){
+          label.push(this.noteArchive.label[i].label_name);
+        }
+      }
+
       let request={
         title:this.title,
         description:this.description,
         color:this.color,
+        label:label,
         reminder:this.reminder,
         isPinned:this.pinned
       }
+      // console.log(request);
+      
       this.note.addNote(request,null).subscribe((response:any)=>{
         // console.log(response);
         this.resetValues();

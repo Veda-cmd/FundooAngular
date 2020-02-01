@@ -42,6 +42,10 @@ export class NoteService {
     return this.http.post(environment.url+'note/deleteNote',request,headers);
   }
 
+  deleteNotePermanent(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'note/forever',request,headers);
+  }
+
   addLabelToNote(request:Object,headers:HttpHeaders){
     return this.http.post(environment.url+'note/addLabel',request,headers);
   }
