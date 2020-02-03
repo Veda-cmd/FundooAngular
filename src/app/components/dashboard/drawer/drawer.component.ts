@@ -21,27 +21,27 @@ export class DrawerComponent implements OnInit {
 
   openNotes(){
     this.data.changeTitle("Fundoo");
-    this.router.navigate(["/dashboard/notes"]);
+    // this.router.navigate(["/dashboard/notes"]);
   }
 
   openReminders(){
     this.data.changeTitle("Reminders");
-    this.router.navigate(["/dashboard/reminders"]);
+    // this.router.navigate(["/dashboard/reminders"]);
   }
 
   openLabel(label:string){
     this.data.changeTitle(label);
-    this.router.navigate(["/dashboard/label/"+label]);
+    // this.router.navigate(["/dashboard/label/"+label]);
   }
 
   openArchive(){
     this.data.changeTitle("Archive");
-    this.router.navigate(["/dashboard/archive"]);
+    // this.router.navigate(["/dashboard/archive"]);
   }
 
   openTrash(){
     this.data.changeTitle("Trash");
-    this.router.navigate(["/dashboard/trash"]);
+    // this.router.navigate(["/dashboard/trash"]);
   }
 
   editLabel(){

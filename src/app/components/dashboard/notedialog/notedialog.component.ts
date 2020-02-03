@@ -227,4 +227,5 @@ export class NotedialogComponent implements OnInit {
       color:this.color
     });
   }
+
 }

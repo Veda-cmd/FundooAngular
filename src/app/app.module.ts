@@ -30,7 +30,7 @@ import { LabelDialogComponent } from './components/dashboard/label-dialog/label-
 import { TrashiconsComponent } from './components/dashboard/trashicons/trashicons.component';
 import { LabelmenuComponent } from './components/dashboard/labelmenu/labelmenu.component';
 import { NotedialogComponent } from './components/dashboard/notedialog/notedialog.component';
-import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -60,6 +60,7 @@ import { MatIconModule } from '@angular/material/icon';
   NotedialogComponent],
   imports: [
     BrowserModule,
+    FlexLayoutModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialUIModule,

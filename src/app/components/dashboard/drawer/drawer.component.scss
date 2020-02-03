@@ -14,6 +14,12 @@ mat-list mat-list-item{
     cursor: pointer;
 }
 
+.notes,.notes:hover{
+    background-color: #feefc3;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
 .labels{
     color: #5f6368;
     letter-spacing: .07272727em;
