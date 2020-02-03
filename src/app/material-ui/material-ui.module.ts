@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { MatMenuModule } from '@angular/material';
 import { MatCardModule } from '@angular/material';
-import { MatFormFieldModule, MatInputModule,MatIconModule} from '@angular/material';
+import { MatFormFieldModule, MatInputModule} from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';

@@ -6,6 +6,7 @@ import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialUIModule } from './material-ui/material-ui.module';
 import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms'; 
 import {MyInterceptor} from './interceptor';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,6 +30,7 @@ import { LabelDialogComponent } from './components/dashboard/label-dialog/label-
 import { TrashiconsComponent } from './components/dashboard/trashicons/trashicons.component';
 import { LabelmenuComponent } from './components/dashboard/labelmenu/labelmenu.component';
 import { NotedialogComponent } from './components/dashboard/notedialog/notedialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -63,9 +65,13 @@ import { NotedialogComponent } from './components/dashboard/notedialog/notedialo
     MaterialUIModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     AvatarModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule
+  ],
+  exports:[
+    MaterialUIModule
   ],
   providers: [
     {
