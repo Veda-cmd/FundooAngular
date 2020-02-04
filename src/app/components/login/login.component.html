@@ -8,12 +8,12 @@
     <form class="inputArea">
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput [(ngModel)]="email" name="email" autocomplete="email" required />
+        <input matInput [(ngModel)]="email" placeholder="Email" name="email" autocomplete="email" required />
       </mat-form-field>
       
       <mat-form-field class="inputPass" appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput autocomplete="off" [(ngModel)]="password" name="password" [type]="show?'text':'password'" required/>
+        <input matInput autocomplete="off" placeholder="Password" [(ngModel)]="password" name="password" [type]="show?'text':'password'" required/>
         <mat-icon (click)="showPassword()" *ngIf="!show" matSuffix>visibility_off</mat-icon>
         <mat-icon (click)="showPassword()" *ngIf="show" matSuffix>visibility</mat-icon>
       </mat-form-field>

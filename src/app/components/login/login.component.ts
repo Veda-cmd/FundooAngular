@@ -26,24 +26,22 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
-
     if(!emailPattern.test(this.email) || !passwordPattern.test(this.password)){
       alert("Email/password is incorrect");
       this.email="";
       this.password="";
-      return;
+      return false;
     }
     else{
+
       let request={
         email:this.email,
         password:this.password
       }
     
-      this.user.login(request).subscribe((response:HttpResponse<any>)=>{ 
+      this.user.login(request).subscribe((response:any)=>{ 
         sessionStorage.setItem("token",response.body.session);
         sessionStorage.setItem("image",response.body.response.imageUrl);
-        
-        // sessionStorage.setItem("image",response.body)
         this.router.navigate(['/dashboard']);
       },(error)=>{
         console.log("Error occurred",error)

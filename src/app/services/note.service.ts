@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpService} from './http.service';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
-
+   
   constructor(private http:HttpService) { }
 
   getLabels(){
