@@ -43,3 +43,17 @@
     font-size: 14px;
     padding: 0 12px;
 }
+
+.createBox{
+    display: flex;
+    flex-direction: row;
+}
+
+.createBox:hover{
+    background-color: rgba(95,99,104,0.039);
+}
+
+.createIcon{
+    margin-top: 10px;
+    margin-left: 5px;
+}

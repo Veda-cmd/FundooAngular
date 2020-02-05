@@ -9,11 +9,27 @@
             </svg>
         </mat-icon>
     </div>
-    <mat-list>
+    <mat-list *ngIf="list">
         <mat-list-item class="menu-item" role="listitem" *ngFor="let item of labels">
             <mat-checkbox (click)="$event.stopPropagation()" (change)="changeLabel($event,item)" [checked]="getCheck(item)"></mat-checkbox>
             <div class="label-name">{{item.label_name}}</div>
         </mat-list-item>
     </mat-list>
+    <mat-list *ngIf="array.length!==0">
+        <mat-list-item class="menu-item" role="listitem" *ngFor="let item of array">
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="changeLabel($event,item)" [checked]="getCheck(item)"></mat-checkbox>
+            <div class="label-name">{{item.label_name}}</div>
+        </mat-list-item>
+    </mat-list>
+    <hr *ngIf="value.length!==0">
+    <div class="createBox" *ngIf="value.length!==0" (click)="addLabel(value)">
+        <mat-icon class="createIcon">
+            <svg xmlns="http://www.w3.org/2000/svg" height="18px" width="18px" viewBox="0 0 48 48" fill="#000000">
+                <path d="m38 26h-12v12h-4v-12h-12v-4h12v-12h4v12h12v4z"/>
+                <path d="m0 0h48v48h-48z" fill="none"/>
+            </svg>
+        </mat-icon>
+        <p>Create "<b>{{value}}</b>"</p>
+    </div>
 </div>
 
