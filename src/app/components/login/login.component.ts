@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log(this.email);
+    
     if(!emailPattern.test(this.email) || !passwordPattern.test(this.password)){
       alert("Email/password is incorrect");
       this.email="";
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("token",response.body.session);
         sessionStorage.setItem("image",response.body.response.imageUrl);
         this.router.navigate(['/dashboard']);
+        return response.body.response;
       },(error)=>{
         console.log("Error occurred",error)
       })

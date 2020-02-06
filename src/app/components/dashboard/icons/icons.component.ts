@@ -70,4 +70,8 @@ export class IconsComponent implements OnInit {
     this.deletePermanent.emit();
   }
 
+  openCollaborator(){
+    
+  }
+
 }
