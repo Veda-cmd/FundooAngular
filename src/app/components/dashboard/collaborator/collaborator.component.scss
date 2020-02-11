@@ -1,0 +1,60 @@
+::ng-deep .mat-dialog-container{
+    padding: 0px;
+}
+
+.collaborator-card{
+    width: 500px;
+    min-height: 150px;
+}
+
+.collaborator-title{
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    font-size: 18px;
+    font-weight: 500;
+    height: 25px;
+    padding: 0 0 10px 0;
+}
+
+.image{
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+.imageDiv{
+    border: 2px solid #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 1px 1px rgba(60,64,67,0.149);
+    box-shadow: 0 1px 1px 1px rgba(60,64,67,0.149);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    margin: 10px 0px 0px 0px;
+}
+
+.collaborator-owner{
+    display: flex;
+}
+
+.collaborator-align{
+    margin: 13px 13px 0px 13px;
+}
+
+.collaborator-name{
+    font-size: 13px;
+}
+
+.email{
+    display: block;
+    color: #5f6368;
+}
+
+.owner{
+    font-style: italic;
+    margin-left: 5px;
+}

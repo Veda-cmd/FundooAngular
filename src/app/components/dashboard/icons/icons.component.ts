@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, EventEmitter, Input, Output } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material';
+import { MatMenuTrigger, MatDialog } from '@angular/material';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-icons',
@@ -31,7 +32,7 @@ export class IconsComponent implements OnInit {
   @Output() restore: EventEmitter<any> = new EventEmitter();
   @Output() deletePermanent: EventEmitter<any> = new EventEmitter();
 
-  constructor() {
+  constructor(private dialog:MatDialog) {
   }
 
   ngOnInit() {
@@ -71,7 +72,9 @@ export class IconsComponent implements OnInit {
   }
 
   openCollaborator(){
-    
+    this.dialog.open(CollaboratorComponent,{
+      data:{note:this.archivedNote}
+    });
   }
 
 }

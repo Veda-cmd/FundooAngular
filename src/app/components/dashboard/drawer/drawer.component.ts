@@ -13,7 +13,7 @@ export class DrawerComponent implements OnInit {
   open:boolean;
   @Input() labels:Array<any>;
   
-  constructor(private data:DataService,private router:Router,public dialog: MatDialog) {}
+  constructor(private data:DataService,public dialog: MatDialog) {}
 
   ngOnInit() {
     this.data.open.subscribe(value=>this.open=value);    

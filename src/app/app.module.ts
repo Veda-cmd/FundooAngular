@@ -31,6 +31,7 @@ import { TrashiconsComponent } from './components/dashboard/trashicons/trashicon
 import { LabelmenuComponent } from './components/dashboard/labelmenu/labelmenu.component';
 import { NotedialogComponent } from './components/dashboard/notedialog/notedialog.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { CollaboratorComponent } from './components/dashboard/collaborator/collaborator.component';
 
 @NgModule({
   declarations: [
@@ -54,10 +55,12 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     LabelDialogComponent,
     TrashiconsComponent,
     LabelmenuComponent,
-    NotedialogComponent
+    NotedialogComponent,
+    CollaboratorComponent
   ],
   entryComponents: [LabelDialogComponent,
-  NotedialogComponent],
+  NotedialogComponent,
+  CollaboratorComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,

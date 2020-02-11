@@ -1,0 +1,28 @@
+<mat-card class="collaborator-card">
+    <div class="collaborator-title">Collaborators</div>
+    <div class="collaborator-owner">
+        <div class="imageDiv">
+            <img [src]="image" class="image" />
+        </div>
+        <div class="collaborator-align collaborator-name">
+            <div class="collaborator-owner">
+                <span>Vedant Nare</span>
+                <span class="owner">(Owner)</span>
+            </div>
+            <div class="email">{{email}}</div>
+        </div>
+    </div>
+    <div *ngFor="let item of note.collaborator">
+        <div class="collaborator-owner" *ngIf="item.email!==email">
+            <div class="imageDiv">
+                <img [src]="item?.imageUrl || null" class="image" />
+            </div>
+            <div class="collaborator-align collaborator-name">
+                <div class="collaborator-owner">
+                    <span>{{item.firstName}} {{item.lastName}}</span>
+                </div>
+                <div class="email">{{item.email}}</div>
+            </div>
+        </div>
+    </div>
+</mat-card>
