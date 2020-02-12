@@ -35,6 +35,14 @@ export class NoteService {
     return this.http.post(environment.url+'note/deleteReminder',request,headers);
   }
 
+  addCollaborator(request:Object,headers:HttpHeaders){
+    return this.http.post(environment.url+'note/addCollaborator',request,headers);
+  }
+
+  deleteCollaborator(request:Object,headers:HttpHeaders){
+    return this.http.put(environment.url+'note/removeCollaborator',request,headers);
+  }
+
   updateNote(request:Object,headers:HttpHeaders){
     return this.http.post(environment.url+'note/updateNote',request,headers);
   }

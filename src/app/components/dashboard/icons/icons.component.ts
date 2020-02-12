@@ -27,7 +27,7 @@ export class IconsComponent implements OnInit {
   @Output() archive: EventEmitter<any> = new EventEmitter();
   @Output() unarchive: EventEmitter<any> = new EventEmitter();
   @Output() delete: EventEmitter<any> = new EventEmitter();
-  // @Output() label: EventEmitter<any> = new EventEmitter();
+  @Output() collaborator: EventEmitter<any> = new EventEmitter();
   @Output() labelchange: EventEmitter<any> = new EventEmitter();
   @Output() restore: EventEmitter<any> = new EventEmitter();
   @Output() deletePermanent: EventEmitter<any> = new EventEmitter();
@@ -72,9 +72,7 @@ export class IconsComponent implements OnInit {
   }
 
   openCollaborator(){
-    this.dialog.open(CollaboratorComponent,{
-      data:{note:this.archivedNote}
-    });
+    this.collaborator.emit();
   }
 
 }

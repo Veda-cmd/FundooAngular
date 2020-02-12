@@ -1,28 +1,42 @@
 <mat-card class="collaborator-card">
     <div class="collaborator-title">Collaborators</div>
-    <div class="collaborator-owner">
-        <div class="imageDiv">
-            <img [src]="image" class="image" />
-        </div>
-        <div class="collaborator-align collaborator-name">
-            <div class="collaborator-owner">
-                <span>Vedant Nare</span>
-                <span class="owner">(Owner)</span>
-            </div>
-            <div class="email">{{email}}</div>
-        </div>
-    </div>
-    <div *ngFor="let item of note.collaborator">
-        <div class="collaborator-owner" *ngIf="item.email!==email">
+    <div class="collaborator-scroll">
+        <div class="collaborator-owner">
             <div class="imageDiv">
-                <img [src]="item?.imageUrl || null" class="image" />
+                <img [src]="image" class="image" />
             </div>
             <div class="collaborator-align collaborator-name">
                 <div class="collaborator-owner">
-                    <span>{{item.firstName}} {{item.lastName}}</span>
+                    <span>Vedant Nare</span>
+                    <span class="owner">(Owner)</span>
                 </div>
-                <div class="email">{{item.email}}</div>
+                <div class="email">{{email}}</div>
             </div>
         </div>
+        <div *ngFor="let item of note.collaborator">
+            <div class="collaborator-owner" *ngIf="item.email!==email">
+                <div class="imageDiv">
+                    <img src="assets/pngfuel.com.png" class="image" />
+                </div>
+                <div class="collaborator-align collaborator-name collaborator-width">
+                    <div class="collaborator-owner">
+                        <span>{{item.firstName}} {{item.lastName}}</span>
+                    </div>
+                    <div class="email">{{item.email}}</div>
+                </div>
+                <img src="assets/delete.svg" class="deleteCollaborator" (click)="deleteCollaborator(item)" matTooltip="Delete" />
+            </div>
+        </div>
+        <div class="collaborator-owner">
+            <div class="imageDiv">
+                <img src="assets/add.svg" class="add" />
+            </div>
+            <input class="input collaborator-width collaborator-align" (input)="inputChange($event)" placeholder="Person or email to share with"/>
+            <img src="assets/ok.svg" class="deleteCollaborator" *ngIf="input.length!==0" (click)="addCollaborator()" matTooltip="Add collaborator" />
+        </div>
+    </div>
+    <div class="collaborator-owner toolBox ">
+        <button class="button button-margin" (click)="close()">Cancel</button>
+        <button class="button">Save</button>
     </div>
 </mat-card>

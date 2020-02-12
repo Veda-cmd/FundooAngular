@@ -3,6 +3,7 @@ import { NoteService } from 'src/app/services/note.service';
 import { DataService } from 'src/app/services/data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { NotedialogComponent } from '../notedialog/notedialog.component';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 
 @Component({
@@ -291,5 +292,9 @@ export class DisplaynotesComponent implements OnInit {
         this.getNotes.emit();
       }
     })
+  }
+
+  openCollboratorDialog(){
+    this.dialog.open(CollaboratorComponent,{data:{note:this.note}})
   }
 }

@@ -23,6 +23,26 @@
     width: 100%;
 }
 
+.add{
+    opacity: .5;
+    margin-left: 6px;
+    height: 40px;
+    width: 24px;
+}
+
+.input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #3c4043;
+    font-size: 13px;
+    font-family: 'Roboto',arial,sans-serif;
+    outline: none;
+    padding: 0;
+}
+
 .imageDiv{
     border: 2px solid #fff;
     -webkit-box-sizing: border-box;
@@ -41,6 +61,14 @@
     display: flex;
 }
 
+.collaborator-width{
+    width:350px;
+}
+
+.collaborator-scroll{
+    max-height: 150px;
+}
+
 .collaborator-align{
     margin: 13px 13px 0px 13px;
 }
@@ -57,4 +85,50 @@
 .owner{
     font-style: italic;
     margin-left: 5px;
+}
+
+.deleteCollaborator{
+    margin: 20px 0px 0px 20px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.deleteCollaborator:hover{
+    opacity: .87;
+    background-color: rgba(95,99,104,0.157);
+}
+
+.toolBox{
+    height: 50px;
+}
+
+.button{
+    display: inline-block;
+    background: transparent;
+    outline: none !important;
+    border: none;
+    margin: 15px 10px 0px 0px;
+    box-sizing: border-box;
+    color: rgba(0,0,0,0.87);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    letter-spacing: .01785714em;
+    font-family: 'Google Sans',Roboto,Arial,sans-serif;
+    font-size: .875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    height: 36px;
+    cursor: pointer;
+    width:80px;
+}
+
+.button:hover{
+    background-color: rgba(78, 81, 83, 0.039);
+}
+
+.button-margin{
+    margin-left: 330px;
 }

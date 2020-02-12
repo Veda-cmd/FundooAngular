@@ -38,6 +38,9 @@
         <mat-chip *ngIf="note.label.length>3" (click)="openNoteDialog()">
             +{{note.label.length - 2}}
         </mat-chip>
+        <div class="imageDiv" *ngFor="let item of note.collaborator">
+            <img src="assets/pngfuel.com.png" (click)="openCollboratorDialog()" class="image" matTooltip="{{item?.email}}"/>
+        </div>
     </mat-chip-list>
     <app-icons [archivedNote]="note" (color)="setColor($event)" 
     (setReminder)="setReminder($event)"
@@ -46,6 +49,7 @@
     (delete)="deleteNote($event)"
     (restore)="restoreNote($event)"
     (deletePermanent)="deleteNotePermanent($event)"
-    (labelchange)="changeLabel($event)">
+    (labelchange)="changeLabel($event)"
+    (collaborator)="openCollboratorDialog($event)">
     </app-icons>
 </mat-card>

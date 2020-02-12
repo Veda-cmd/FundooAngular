@@ -71,3 +71,25 @@
 .pin:hover,.unpin:hover{
     opacity: .71;
 }
+
+.image{
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+.imageDiv{
+    border: 2px solid #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 1px 1px rgba(60,64,67,0.149);
+    box-shadow: 0 1px 1px 1px rgba(60,64,67,0.149);
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    overflow: hidden;
+    margin: 10px 5px 0px 0px;
+}
