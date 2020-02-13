@@ -7,7 +7,7 @@
             </div>
             <div class="collaborator-align collaborator-name">
                 <div class="collaborator-owner">
-                    <span>Vedant Nare</span>
+                    <span>{{firstName}} {{lastName}}</span>
                     <span class="owner">(Owner)</span>
                 </div>
                 <div class="email">{{email}}</div>
@@ -31,12 +31,15 @@
             <div class="imageDiv">
                 <img src="assets/add.svg" class="add" />
             </div>
-            <input class="input collaborator-width collaborator-align" (input)="inputChange($event)" placeholder="Person or email to share with"/>
+            <input class="input collaborator-width collaborator-align" (input)="inputChange($event)" [value]="input" placeholder="Person or email to share with"/>
             <img src="assets/ok.svg" class="deleteCollaborator" *ngIf="input.length!==0" (click)="addCollaborator()" matTooltip="Add collaborator" />
         </div>
+        <div class="exists" *ngIf="invalid">Please enter correct email</div>
+        <div class="exists" *ngIf="exists">This email already exists</div>
+        <div class="exists" *ngIf="notExists">This email does not exists</div>
     </div>
     <div class="collaborator-owner toolBox ">
         <button class="button button-margin" (click)="close()">Cancel</button>
-        <button class="button">Save</button>
+        <button class="button" (click)="save()">Save</button>
     </div>
 </mat-card>

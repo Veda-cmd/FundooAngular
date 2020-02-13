@@ -26,4 +26,8 @@ export class UserService {
   reset(request: Object,headers:HttpHeaders){
     return this.httpService.post(environment.url+'reset',request,headers);
   }
+
+  getUsers(){
+    return this.httpService.get(environment.url+'getAllUsers');
+  }
 }

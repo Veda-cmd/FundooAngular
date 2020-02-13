@@ -38,8 +38,13 @@ export class LoginComponent implements OnInit {
         password:this.password
       }
       this.user.login(request).subscribe((response:any)=>{ 
+        // console.log(response);
         sessionStorage.setItem("token",response.body.session);
         sessionStorage.setItem("image",response.body.response.imageUrl);
+        sessionStorage.setItem("firstName",response.body.response.firstName);
+        sessionStorage.setItem("lastName",response.body.response.lastName);
+        sessionStorage.setItem("email",response.body.response.email);
+
         this.router.navigate(['/dashboard']);
       },(error)=>{
         console.log("Error occurred",error)

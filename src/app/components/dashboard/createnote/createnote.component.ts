@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/services/note.service';
+import { MatDialog } from '@angular/material';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-createnote',
@@ -23,7 +25,7 @@ export class CreatenoteComponent implements OnInit {
   }
   @Output() getNotes: EventEmitter<any> = new EventEmitter();
 
-  constructor(private note: NoteService) {
+  constructor(private note: NoteService,public dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -117,6 +119,10 @@ export class CreatenoteComponent implements OnInit {
       }
     }
     
+  }
+
+  setCollaborator(){
+    this.dialog.open(CollaboratorComponent,{data:{note:this.noteArchive}})
   }
 
   onClose(){

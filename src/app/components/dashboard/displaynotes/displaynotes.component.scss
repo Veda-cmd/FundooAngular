@@ -64,12 +64,20 @@
     line-height: 1.25rem;
 }
 
-.pin,.unpin{
+.pin,.unpin,.chip{
     cursor: pointer;
 }
 
 .pin:hover,.unpin:hover{
     opacity: .71;
+}
+
+.chip .delete{
+    display: none;
+}
+
+.chip:hover .delete{
+    display: block;
 }
 
 .image{
@@ -92,4 +100,8 @@
     width: 40px;
     overflow: hidden;
     margin: 10px 5px 0px 0px;
+}
+
+::ng-deep .mat-chip{
+    font-size: 12px;
 }
