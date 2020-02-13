@@ -44,12 +44,12 @@
     </mat-chip-list>
     <app-icons [archivedNote]="note" (color)="setColor($event)" 
     (setReminder)="setReminder($event)"
-    (archive)="setArchive($event)"
-    (unarchive)="setUnarchive($event)"
-    (delete)="deleteNote($event)"
-    (restore)="restoreNote($event)"
-    (deletePermanent)="deleteNotePermanent($event)"
+    (archive)="setArchive()"
+    (unarchive)="setUnarchive()"
+    (delete)="deleteNote()"
+    (restore)="restoreNote()"
+    (deletePermanent)="deleteNotePermanent()"
     (labelchange)="changeLabel($event)"
-    (collaborator)="openCollboratorDialog($event)">
+    (collaborator)="openCollboratorDialog()">
     </app-icons>
 </mat-card>

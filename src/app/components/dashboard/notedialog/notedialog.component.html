@@ -31,9 +31,9 @@
     <div class="tools">
         <app-icons [archivedNote]="data.note" (color)="setColor($event)" 
         (setReminder)="setReminder($event)"
-        (archive)="setArchive($event)"
-        (unarchive)="setUnarchive($event)"
-        (delete)="deleteNote($event)"
+        (archive)="setArchive()"
+        (unarchive)="setUnarchive()"
+        (delete)="deleteNote()"
         (labelchange)="changeLabel($event)">
         </app-icons>
         <button class="close" (click)="close()">Close</button>
