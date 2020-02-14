@@ -70,3 +70,21 @@
     margin-left: 90px;
     border-radius: 90%;
 }
+
+@media screen and (max-width:450px){
+    .image{
+        display: none;
+    }
+    .title{
+        width:120px;
+        top:-2.5px;
+        font-size: 20px;
+    }
+    .main,.other-main{
+        margin-left: 10px;
+    }
+    .other-title{
+        width:120px;
+        font-size: 20px;
+    }
+}

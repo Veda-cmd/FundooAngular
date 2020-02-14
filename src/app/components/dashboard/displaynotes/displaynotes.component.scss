@@ -105,3 +105,11 @@
 ::ng-deep .mat-chip{
     font-size: 12px;
 }
+
+::ng-deep .mat-chip.mat-standard-chip {
+    background-color: rgba(0,0,0,0.08);
+}
+
+@media screen and (min-width: 480px) {
+   
+}

@@ -44,3 +44,12 @@ mat-list-item:hover{
 .archive{
     margin-top: 5px;
 }
+
+@media screen and (max-width:450px){
+   .example-container{
+       top:56px;
+       width: stretch;
+       height: 100%;
+       height: stretch;
+   }
+}
